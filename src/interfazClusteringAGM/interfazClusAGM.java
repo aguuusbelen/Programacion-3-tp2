@@ -43,8 +43,6 @@ public class interfazClusAGM {
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(null);
 			
-			
-			
 			// JTextField de ingresa de puntos del grafo
 			ingeresoDePuntosGrafo = new JTextField();
 			ingeresoDePuntosGrafo.setBounds(229, 23, 70, 25);

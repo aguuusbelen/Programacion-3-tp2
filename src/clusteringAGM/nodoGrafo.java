@@ -4,28 +4,57 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class nodoGrafo {
-
-	private String nombreDeNodo;
-	private HashMap<String, Integer> vecinosPesos;
+	
+	
+	private String nombreDeNodo; /* Nombre del nodo. */
+	private HashMap<String, Integer> vecinosPesos; /* Vecinos del nodo, con sus pesos. */
+	
+	/**
+	 * <b>Constructor: </b></br>
+	 * <u>Constructor de nodoGrafo.</u>
+	 * 
+	 * @param nombreDeNodo
+	 * <i>Nombre para el nodo.</i>
+	 * 
+	 **/
 	
 	public nodoGrafo(String nombreDeNodo) {
 		this.nombreDeNodo = nombreDeNodo;
 		vecinosPesos = new HashMap<>();
 	}
 	
-	// Inserta un vecino del nodo y su peso
+	/**
+	 * <b>insertarVecinoConPeso(): </b></br>
+	 * <u>metodo que inserta nodos vecinos y peso en el nodo.</u>
+	 **/
+	
 	public void insertarVecinoConPeso(String nombreDeNodoVecino, Integer peso) {
 		
 		vecinosPesos.put(nombreDeNodoVecino, peso);
 		
 	}
 	
-	//Get del nombre del nodo
+	/**
+	 * <b>getNombre: </b></br>
+	 * <u>Devuelve el nombre del nodo.</u>
+	 * 
+	 * @return String con nombre del nodo.
+	 **/
+	
 	public String getNombre() {
 		return nombreDeNodo;
 	}
 	
-	//Get peso de vecino
+	/**
+	 * <b>getVecinoPeso(): </b></br>
+	 * <u>Metodo que devuelve el peso o distancia de un vecino desde el nodo.</u>
+	 * 
+	 * @param nombreDeNodoVecino
+	 * <i>Nombre para el nodo.</i>
+	 * @return int con valor del peso o distancia.
+	 * 
+	 **/
+	
 	public int getVecinoPeso(String nombreDeNodoVecino) {
 		
 		int valor = vecinosPesos.get(nombreDeNodoVecino);
@@ -33,7 +62,14 @@ public class nodoGrafo {
 		return valor;
 	}
 	
-	//Devuelve los vecinos del vertice
+	/**
+	 * <b>darVecinos():</b></br>
+	 * <u>Metodo que devuelve los nombres de los vecinos del nodo.</u>
+	 * 
+	 * @return String[] vecinos con nombres de los vecinos del nodo.
+	 * 
+	 **/
+	
 	public String[] darVecinos() {
 		
 		 Set<String> keys = vecinosPesos.keySet();
