@@ -50,7 +50,7 @@ public class nodoGrafo {
 	 * <u>Metodo que devuelve el peso o distancia de un vecino desde el nodo.</u>
 	 * 
 	 * @param nombreDeNodoVecino
-	 * <i>Nombre para el nodo.</i>
+	 * <u>Nombre para el nodo.</u>
 	 * @return int con valor del peso o distancia.
 	 * 
 	 **/
