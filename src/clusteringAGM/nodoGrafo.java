@@ -5,7 +5,8 @@ import java.util.Set;
 
 public class nodoGrafo {
 	
-	
+	private int posicionX;
+	private int posicionY;
 	private String nombreDeNodo; /* Nombre del nodo. */
 	private HashMap<String, Integer> vecinosPesos; /* Vecinos del nodo, con sus pesos. */
 	

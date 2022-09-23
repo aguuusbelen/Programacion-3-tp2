@@ -38,6 +38,8 @@ public class interfazClusAGM {
 		 * Initialize the contents of the frame.
 		 */
 		private void initialize() {
+			
+			
 			frame = new JFrame();
 			frame.setBounds(100, 100, 1080, 520);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,10 +63,10 @@ public class interfazClusAGM {
 			JLabel ingreseUniones = new JLabel("Ingrese uniones del nuevo punto: ");
 			ingreseUniones.setBounds(12, 56, 265, 17);
 			
-			//Ingreso de elementos en interfaz
+			// Ingreso de elementos en interfaz
 			frame.getContentPane().add(ingreseUniones);
 			frame.getContentPane().add(ingreseNuevoPunto);
-			frame.getContentPane().add(ingeresoDePuntosGrafo);					
+			frame.getContentPane().add(ingeresoDePuntosGrafo);				
 			frame.getContentPane().add(ingeresoDeUnionPuntoGrafo);
 			
 			

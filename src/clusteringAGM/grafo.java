@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class grafo {
 		
+		// Deberia cambiar el nombre a vertice por que no es un arbol.
 		private LinkedList<nodoGrafo> grafo; /* LinkedList que contiene los nodos del grafo */
-		
 		
 		/**
 		 * <b>Constructor: </b></br>
@@ -18,14 +18,14 @@ public class grafo {
 		}
 		
 		/**
-		 * <b>insertarNodo(): </b></br>
+		 * <b>insertarVertice (): </b></br>
 		 * <u>Metodo que inserta un nuevo nodo en el grafo.</u>
 		 * 
 		 **/
 		
-		public void insertarNodo(String nombreDelNodo) {
+		public void insertarVertice(String nombreDelVertice) {
 			
-			nodoGrafo nodoGrafo = new nodoGrafo(nombreDelNodo);
+			nodoGrafo nodoGrafo = new nodoGrafo(nombreDelVertice);
 			grafo.add(nodoGrafo);
 			
 		}
@@ -43,7 +43,7 @@ public class grafo {
 		 **/
 		
 		// ?? tengo que isertar pesos aca tambien ??
-		public void rellenarVecinosDeNodo(String nombreDelNodo, String[] nombresDeVecinos) {
+		public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
 			
 			int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
 			nodoGrafo nodoParaInsertarVecinos = grafo.get(indexNodo);
@@ -51,6 +51,28 @@ public class grafo {
 			for(int i = 0; i < nombresDeVecinos.length;i++) {
 				nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecinos[i], null);
 			}
+			
+		}
+		
+		/**
+		 * <b>obtenerVecinosDeVertice(): </b></br>
+		 * <u>Metodo que da todos los vecinos de un vertice.</u>
+		 * 
+		 * @param nombreDeVertice
+		 * <u>Nombre del vertice del que se busca sus vecinos.</u>
+		 *
+		 *@return Array de string de vecinos del correspondiente vertice del grafo.
+		 *
+		 **/
+		
+		public String[] obtenerVecinosDeVertice(String nombreDeNodo) {
+			
+			int indexNodo = obtenerIndexDeNodo(nombreDeNodo);
+			nodoGrafo nodoParaInsertarVecinos = grafo.get(indexNodo);
+			
+			String[] vecinosDeNodo = nodoParaInsertarVecinos.darVecinos();
+			
+			return vecinosDeNodo;
 			
 		}
 		
