@@ -3,7 +3,7 @@ package clusteringAGM;
 import java.util.HashMap;
 import java.util.Set;
 
-public class nodoGrafo {
+public class Vertice {
 	
 	private int posicionX;
 	private int posicionY;
@@ -19,7 +19,7 @@ public class nodoGrafo {
 	 * 
 	 **/
 	
-	public nodoGrafo(String nombreDeNodo) {
+	public Vertice(String nombreDeNodo) {
 		this.nombreDeNodo = nombreDeNodo;
 		vecinosPesos = new HashMap<>();
 	}

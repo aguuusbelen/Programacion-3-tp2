@@ -1,19 +1,20 @@
 package clusteringAGM;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class grafo {
+public class Grafo {
 		
 		// Deberia cambiar el nombre a vertice por que no es un arbol.
-		private LinkedList<nodoGrafo> grafo; /* LinkedList que contiene los nodos del grafo */
+		private List<Vertice> grafo; /* List que contiene los nodos del grafo */
 		
 		/**
-		 * <b>Constructor: </b></br>
+		 * <b>Constructor: </b></br> 
 		 * <u>Constructor de grafo.</u>
 		 * 
 		 **/
 		
-		public grafo() {
+		public Grafo() {
 			grafo = new LinkedList<>();
 		}
 		
@@ -25,7 +26,7 @@ public class grafo {
 		
 		public void insertarVertice(String nombreDelVertice) {
 			
-			nodoGrafo nodoGrafo = new nodoGrafo(nombreDelVertice);
+			Vertice nodoGrafo = new Vertice(nombreDelVertice);
 			grafo.add(nodoGrafo);
 			
 		}
@@ -46,7 +47,7 @@ public class grafo {
 		public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
 			
 			int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
-			nodoGrafo nodoParaInsertarVecinos = grafo.get(indexNodo);
+			Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
 			
 			for(int i = 0; i < nombresDeVecinos.length;i++) {
 				nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecinos[i], null);
@@ -68,7 +69,7 @@ public class grafo {
 		public String[] obtenerVecinosDeVertice(String nombreDeNodo) {
 			
 			int indexNodo = obtenerIndexDeNodo(nombreDeNodo);
-			nodoGrafo nodoParaInsertarVecinos = grafo.get(indexNodo);
+			Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
 			
 			String[] vecinosDeNodo = nodoParaInsertarVecinos.darVecinos();
 			
