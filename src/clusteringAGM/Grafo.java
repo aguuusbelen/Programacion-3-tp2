@@ -5,8 +5,7 @@ import java.util.List;
 
 public class Grafo {
 
-	// Deberia cambiar el nombre a vertice por que no es un arbol.
-	// private List<Vertice> grafo; /* List que contiene los nodos del grafo */
+	private List<Vertice> grafo; /* List que contiene los nodos del grafo */
 	private boolean[][] A; // matriz de adyacencia
 
 	/**
@@ -16,7 +15,7 @@ public class Grafo {
 	 **/
 
 	public Grafo(int vertices) {
-		// grafo = new LinkedList<>();
+		grafo = new LinkedList<>();
 		A = new boolean[vertices][vertices];
 	}
 
