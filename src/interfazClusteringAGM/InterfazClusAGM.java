@@ -127,6 +127,16 @@ public class InterfazClusAGM {
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		agregarVertice.setBounds(94, 253, 148, 46);
 		frame.getContentPane().add(agregarVertice);
+		
+		JButton btnCrearGrafo = new JButton("Crear grafo");
+		btnCrearGrafo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				aplicacion.crearGrafo();
+			}
+		});
+		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCrearGrafo.setBounds(252, 253, 148, 46);
+		frame.getContentPane().add(btnCrearGrafo);
 
 	}
 }

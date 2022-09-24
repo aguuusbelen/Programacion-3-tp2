@@ -11,14 +11,19 @@ public class Aplicacion {
 	private HashMap<String, Point> listaVertices;
 
 	public Aplicacion() {
-		grafo = new Grafo();
+		
 		listaVertices = new HashMap<>();
 	}
 
 	public void agregarVertice(String nombre, Integer posicionX, Integer posicionY) {
 		Point coordenada = new Point(posicionX, posicionY);
 		listaVertices.put(nombre, coordenada);
-		System.out.print(listaVertices);
 	}
+
+	public void crearGrafo() {
+		grafo = new Grafo(listaVertices.size());
+	}
+	
+	
 
 }
