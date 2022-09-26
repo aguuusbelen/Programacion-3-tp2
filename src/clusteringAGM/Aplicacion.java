@@ -22,7 +22,7 @@ public class Aplicacion {
 	}
 
 	public void crearGrafo() {
-		grafo = new Grafo(listaVertices.size());
+		grafo = new Grafo();
 		// tengo que recorrer listaVertices y agregar cada coordenada (x,y)
 		// https://www.discoduroderoer.es/formas-de-recorrer-un-hashmap-en-java/
 

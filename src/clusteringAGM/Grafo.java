@@ -8,7 +8,7 @@ import java.util.List;
 public class Grafo {
 
 	private List<Vertice> grafo; /* List que contiene los nodos del grafo */
-	private boolean[][] A; // matriz de adyacencia
+	
 	private HashMap <Arista, Integer> listaAristas; //<String, Integer>
 
 	/**
@@ -17,9 +17,9 @@ public class Grafo {
 	 * 
 	 **/
 
-	public Grafo(int vertices) {
+	public Grafo() {
 		grafo = new LinkedList<>();
-		A = new boolean[vertices][vertices];
+		
 	}
 
 	/**
@@ -45,10 +45,6 @@ public class Grafo {
 	
 	}
 	
-	public void crearGrafo(int size) {
-		// TODO Auto-generated method stub
-		
-	}
 	public void insertarVertice(String nombreDelVertice) {
 
 		Vertice nodoGrafo = new Vertice(nombreDelVertice);
@@ -124,28 +120,6 @@ public class Grafo {
 		}
 
 		return index;
-	}
-	
-	public boolean existeArista(int i, int j) {
-		verificarVerticeValido(i);
-		verificarVerticeValido(j);
-		verificarDistintos(i,j);
-		return A[i][j];
-	}
-
-	private void verificarVerticeValido(int i) {
-		if (i < 0) {
-			throw new IllegalArgumentException("El vertice no puede ser negativo: " + i);
-		}
-		if (i >= A.length) {
-			throw new IllegalArgumentException("Los vertices deben estar entre 0 y |V|-1: " + i);
-		}
-	}
-
-	private void verificarDistintos(int i, int j) {
-		if (j == i) {
-			throw new IllegalArgumentException("No se permiten loops: (" + i + ", " + j + ")");
-		}
 	}
 
 	
