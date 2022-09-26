@@ -28,7 +28,9 @@ public class Aplicacion {
 
 		for (int i = 0; i < listaVertices.size(); ++i) {
 			for (String clave : listaVertices.keySet()) {
-				grafo.agregarArista(listaVertices.get(clave));
+				Integer posX =  listaVertices.get(clave).x;
+				Integer posY =  listaVertices.get(clave).y;
+				grafo.agregarArista(posX, posY);
 			}
 		}
 	}
