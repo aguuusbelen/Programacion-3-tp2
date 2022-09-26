@@ -29,15 +29,7 @@ public class Grafo {
 	 **/
 	
 	public void agregarArista(Point vertice1, Point vertice2) {
-		/*
-		// codigo defensivo
-		verificarVerticeValido(point);
-		verificarVerticeValido(point2);
-		verificarDistintos(point, point2);
-		// codigo de negocio
-		A[point][point2] = true;
-		A[point2][point] = true;
-	*/
+		
 		Integer peso = (int) calcularDistancia(vertice1, vertice2);
 		Arista arista = new Arista(vertice1, vertice2);
 		listaAristas.put(arista, peso);
