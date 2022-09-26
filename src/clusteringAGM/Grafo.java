@@ -1,5 +1,6 @@
 package clusteringAGM;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ public class Grafo {
 
 	private List<Vertice> grafo; /* List que contiene los nodos del grafo */
 	private boolean[][] A; // matriz de adyacencia
+	private HashMap <String, Integer> listaAristas; //<Arista, Integer>
 
 	/**
 	 * <b>Constructor: </b></br>

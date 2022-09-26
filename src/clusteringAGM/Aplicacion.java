@@ -27,11 +27,11 @@ public class Aplicacion {
 		// https://www.discoduroderoer.es/formas-de-recorrer-un-hashmap-en-java/
 
 		for (int i = 0; i < listaVertices.size(); ++i) {
-			for (String clave : listaVertices.keySet()) {
-				Integer posX =  listaVertices.get(clave).x;
-				Integer posY =  listaVertices.get(clave).y;
+			for (String vertice : listaVertices.keySet()) {
+				Integer posX =  listaVertices.get(vertice).x;
+				Integer posY =  listaVertices.get(vertice).y;
 				grafo.agregarArista(posX, posY);
-				System.out.print(grafo);
+				
 			}
 		}
 	}
