@@ -18,10 +18,16 @@ public class Aplicacion {
 	public void agregarVertice(String nombre, Integer posicionX, Integer posicionY) {
 		Point coordenada = new Point(posicionX, posicionY);
 		listaVertices.put(nombre, coordenada);
+		
 	}
 
 	public void crearGrafo() {
-		grafo = new Grafo(listaVertices.size());
+		for (int i = 0; i < listaVertices.size(); ++i) {
+			
+	}
+
+	public HashMap<String, Point> getListaVertices() {
+		return listaVertices;
 	}
 	
 	

@@ -24,7 +24,20 @@ public class Grafo {
 	 * <u>Metodo que inserta un nuevo nodo en el grafo.</u>
 	 * 
 	 **/
-
+	
+	public void agregarArista(int i, int j) {
+		// codigo defensivo
+		verificarVerticeValido(i);
+		verificarVerticeValido(j);
+		verificarDistintos(i, j);
+		// codigo de negocio
+		A[i][j] = true;
+		A[j][i] = true;
+	}
+	public void crearGrafo(int size) {
+		// TODO Auto-generated method stub
+		
+	}
 	public void insertarVertice(String nombreDelVertice) {
 
 		Vertice nodoGrafo = new Vertice(nombreDelVertice);
@@ -101,4 +114,28 @@ public class Grafo {
 
 		return index;
 	}
+	
+	public boolean existeArista(int i, int j) {
+		verificarVerticeValido(i);
+		verificarVerticeValido(j);
+		verificarDistintos(i,j);
+		return A[i][j];
+	}
+
+	private void verificarVerticeValido(int i) {
+		if (i < 0) {
+			throw new IllegalArgumentException("El vertice no puede ser negativo: " + i);
+		}
+		if (i >= A.length) {
+			throw new IllegalArgumentException("Los vertices deben estar entre 0 y |V|-1: " + i);
+		}
+	}
+
+	private void verificarDistintos(int i, int j) {
+		if (j == i) {
+			throw new IllegalArgumentException("No se permiten loops: (" + i + ", " + j + ")");
+		}
+	}
+
+	
 }
