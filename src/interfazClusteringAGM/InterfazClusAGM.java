@@ -22,7 +22,7 @@ public class InterfazClusAGM {
 
 	private JFrame frame;
 	private JTextField textFieldPosX;
-	private JTextField ingresoDeUnionPuntoGrafo;
+	private JTextField nombreGrafo;
 	private JTextField textFieldPosY;
 	private Aplicacion aplicacion;
 
@@ -61,9 +61,9 @@ public class InterfazClusAGM {
 		frame.getContentPane().setLayout(null);
 
 		// JTextField de ingresa de puntos del grafo
-		ingresoDeUnionPuntoGrafo = new JTextField();
-		ingresoDeUnionPuntoGrafo.setBounds(304, 52, 70, 25);
-		ingresoDeUnionPuntoGrafo.setColumns(1);
+		nombreGrafo = new JTextField();
+		nombreGrafo.setBounds(304, 52, 70, 25);
+		nombreGrafo.setColumns(1);
 
 		// Label para nuevo punto
 		JLabel nuevoPunto = new JLabel("Ingrese nombre de nuevo punto: ");
@@ -115,13 +115,16 @@ public class InterfazClusAGM {
 		frame.getContentPane().add(ingreseCoordenadas);
 		frame.getContentPane().add(nuevoPunto);
 		frame.getContentPane().add(textFieldPosX);
-		frame.getContentPane().add(ingresoDeUnionPuntoGrafo);
+		frame.getContentPane().add(nombreGrafo);
 
 		JButton agregarVertice = new JButton("Agregar punto");
 		agregarVertice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aplicacion.agregarVertice(nuevoPunto.getText(), Integer.parseInt(textFieldPosX.getText()),
 						Integer.parseInt(textFieldPosY.getText()));
+				nombreGrafo.setText("");
+				textFieldPosX.setText("");
+				textFieldPosY.setText("");
 			}
 		});
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
