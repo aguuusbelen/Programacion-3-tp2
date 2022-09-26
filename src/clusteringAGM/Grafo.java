@@ -1,5 +1,6 @@
 package clusteringAGM;
 
+import java.awt.Point;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +9,7 @@ public class Grafo {
 
 	private List<Vertice> grafo; /* List que contiene los nodos del grafo */
 	private boolean[][] A; // matriz de adyacencia
-	private HashMap <String, Integer> listaAristas; //<Arista, Integer>
+	private HashMap <Arista, Integer> listaAristas; //<String, Integer>
 
 	/**
 	 * <b>Constructor: </b></br>
@@ -27,15 +28,31 @@ public class Grafo {
 	 * 
 	 **/
 	
-	public void agregarArista(int i, int j) {
+	public void agregarArista(Point vertice1, Point vertice2) {
+		/*
 		// codigo defensivo
-		verificarVerticeValido(i);
-		verificarVerticeValido(j);
-		verificarDistintos(i, j);
+		verificarVerticeValido(point);
+		verificarVerticeValido(point2);
+		verificarDistintos(point, point2);
 		// codigo de negocio
-		A[i][j] = true;
-		A[j][i] = true;
+		A[point][point2] = true;
+		A[point2][point] = true;
+	*/
+		Integer peso = (int) calcularDistancia(vertice1, vertice2);
+		Arista arista = new Arista(vertice1, vertice2);
+		listaAristas.put(arista, peso);
+	}	
+	
+	public double calcularDistancia(Point vertice1, Point vertice2) {
+	
+		double diferenciaX = vertice2.x - vertice1.x;
+		double diferenciaY = vertice2.y - vertice1.y;
+		double distancia = Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
+		
+		return distancia;
+	
 	}
+	
 	public void crearGrafo(int size) {
 		// TODO Auto-generated method stub
 		

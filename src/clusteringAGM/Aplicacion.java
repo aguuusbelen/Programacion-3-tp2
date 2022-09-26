@@ -22,16 +22,18 @@ public class Aplicacion {
 	}
 
 	public void crearGrafo() {
-		grafo = new Grafo(100);
+		grafo = new Grafo(listaVertices.size());
 		// tengo que recorrer listaVertices y agregar cada coordenada (x,y)
 		// https://www.discoduroderoer.es/formas-de-recorrer-un-hashmap-en-java/
 
 		for (int i = 0; i < listaVertices.size(); ++i) {
-			for (String vertice : listaVertices.keySet()) {
-				Integer posX =  listaVertices.get(vertice).x;
-				Integer posY =  listaVertices.get(vertice).y;
-				grafo.agregarArista(posX, posY);
-				
+			for (String vertice1 : listaVertices.keySet()) {
+				for (String vertice2 : listaVertices.keySet()) {
+					if (vertice1 != vertice2) {
+						grafo.agregarArista(listaVertices.get(vertice1), listaVertices.get(vertice2));
+					}
+
+				}
 			}
 		}
 	}
