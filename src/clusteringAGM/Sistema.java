@@ -5,12 +5,12 @@ import java.util.HashMap;
 
 import javax.swing.JLabel;
 
-public class Aplicacion {
+public class Sistema {
 
 	private Grafo grafo;
 	private HashMap<String, Point> listaVertices;
 
-	public Aplicacion() {
+	public Sistema() {
 
 		listaVertices = new HashMap<>();
 	}

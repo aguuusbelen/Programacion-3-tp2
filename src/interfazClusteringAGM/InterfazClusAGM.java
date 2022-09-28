@@ -6,7 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import clusteringAGM.Aplicacion;
+import clusteringAGM.Sistema;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -24,7 +24,7 @@ public class InterfazClusAGM {
 	private JTextField textFieldPosX;
 	private JTextField nombreGrafo;
 	private JTextField textFieldPosY;
-	private Aplicacion aplicacion;
+	private Sistema aplicacion;
 
 	/**
 	 * Launch the application.
@@ -46,7 +46,7 @@ public class InterfazClusAGM {
 	 * Create the application.
 	 */
 	public InterfazClusAGM() {
-		aplicacion = new Aplicacion();
+		aplicacion = new Sistema();
 		initialize();
 	}
 
@@ -131,10 +131,11 @@ public class InterfazClusAGM {
 		agregarVertice.setBounds(94, 253, 148, 46);
 		frame.getContentPane().add(agregarVertice);
 		
-		JButton btnCrearGrafo = new JButton("Crear grafo");
+		JButton btnCrearGrafo = new JButton("Crear mapa");
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aplicacion.crearGrafo();
+				//Se tiene que abrir otra pantalla para que el usuario agregue la cantidad de componentes/clusters
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
