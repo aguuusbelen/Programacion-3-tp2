@@ -22,11 +22,7 @@ public class Grafo {
 		
 	}
 
-	/**
-	 * <b>insertarVertice (): </b></br>
-	 * <u>Metodo que inserta un nuevo nodo en el grafo.</u>
-	 * 
-	 **/
+	
 	
 	public void agregarArista(Point vertice1, Point vertice2) {
 		Arista arista = new Arista(vertice1, vertice2);
@@ -36,7 +32,11 @@ public class Grafo {
 	}	
 	
 	
-	
+	/**
+	 * <b>insertarVertice (): </b></br>
+	 * <u>Metodo que inserta un nuevo nodo en el grafo.</u>
+	 * 
+	 **/
 	public void insertarVertice(String nombreDelVertice) {
 
 		Vertice nodoGrafo = new Vertice(nombreDelVertice);
