@@ -29,21 +29,13 @@ public class Grafo {
 	 **/
 	
 	public void agregarArista(Point vertice1, Point vertice2) {
-		
-		Integer peso = (int) calcularDistancia(vertice1, vertice2);
 		Arista arista = new Arista(vertice1, vertice2);
+		Integer peso = (int) arista.getPeso();
+		
 		listaAristas.put(arista, peso);
 	}	
 	
-	public double calcularDistancia(Point vertice1, Point vertice2) {
 	
-		double diferenciaX = vertice2.x - vertice1.x;
-		double diferenciaY = vertice2.y - vertice1.y;
-		double distancia = Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
-		
-		return distancia;
-	
-	}
 	
 	public void insertarVertice(String nombreDelVertice) {
 
