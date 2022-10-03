@@ -135,6 +135,8 @@ public class InterfazClusAGM {
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aplicacion.crearGrafo();
+				Interfaz interfaz = new Interfaz();
+				interfaz.getFrame().setVisible(true);
 				// Se tiene que abrir otra pantalla para que el usuario agregue la cantidad de
 				// componentes/clusters
 			}
