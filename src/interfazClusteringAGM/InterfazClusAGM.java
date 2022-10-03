@@ -137,8 +137,7 @@ public class InterfazClusAGM {
 				aplicacion.crearGrafo();
 				Interfaz interfaz = new Interfaz();
 				interfaz.getFrame().setVisible(true);
-				// Se tiene que abrir otra pantalla para que el usuario agregue la cantidad de
-				// componentes/clusters
+				
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
