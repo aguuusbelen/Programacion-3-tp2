@@ -23,9 +23,6 @@ public class Sistema {
 
 	public void crearGrafo() {
 		grafo = new Grafo();
-		// tengo que recorrer listaVertices y agregar cada coordenada (x,y)
-		// https://www.discoduroderoer.es/formas-de-recorrer-un-hashmap-en-java/
-
 		for (int i = 0; i < listaVertices.size(); ++i) {
 			for (String vertice1 : listaVertices.keySet()) {
 				for (String vertice2 : listaVertices.keySet()) {

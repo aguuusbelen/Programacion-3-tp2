@@ -130,12 +130,13 @@ public class InterfazClusAGM {
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		agregarVertice.setBounds(94, 253, 148, 46);
 		frame.getContentPane().add(agregarVertice);
-		
-		JButton btnCrearGrafo = new JButton("Crear mapa");
+
+		JButton btnCrearGrafo = new JButton("Listo");
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aplicacion.crearGrafo();
-				//Se tiene que abrir otra pantalla para que el usuario agregue la cantidad de componentes/clusters
+				// Se tiene que abrir otra pantalla para que el usuario agregue la cantidad de
+				// componentes/clusters
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
