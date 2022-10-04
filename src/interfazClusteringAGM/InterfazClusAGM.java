@@ -22,7 +22,7 @@ public class InterfazClusAGM {
 
 	private JFrame frame;
 	private JTextField textFieldPosX;
-	private JTextField nombreGrafo;
+	private JTextField nombreVerticeGrafo;
 	private JTextField textFieldPosY;
 	private Sistema sistema;
 
@@ -60,10 +60,10 @@ public class InterfazClusAGM {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		// JTextField de ingresa de puntos del grafo
-		nombreGrafo = new JTextField();
-		nombreGrafo.setBounds(304, 52, 70, 25);
-		nombreGrafo.setColumns(1);
+		// JtextField donde se ingresa el nombre de cada vertice del grafo
+		nombreVerticeGrafo = new JTextField();
+		nombreVerticeGrafo.setBounds(304, 52, 70, 25);
+		nombreVerticeGrafo.setColumns(1);
 
 		// Label para nuevo punto
 		JLabel nuevoPunto = new JLabel("Ingrese nombre de nuevo punto: ");
@@ -115,22 +115,22 @@ public class InterfazClusAGM {
 		frame.getContentPane().add(ingreseCoordenadas);
 		frame.getContentPane().add(nuevoPunto);
 		frame.getContentPane().add(textFieldPosX);
-		frame.getContentPane().add(nombreGrafo);
+		frame.getContentPane().add(nombreVerticeGrafo);
 
 		JButton agregarVertice = new JButton("Agregar punto");
 		agregarVertice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sistema.agregarVertice(nuevoPunto.getText(), Integer.parseInt(textFieldPosX.getText()),
+				sistema.agregarVertice(nombreVerticeGrafo.getText(), Integer.parseInt(textFieldPosX.getText()),
 						Integer.parseInt(textFieldPosY.getText()));
-				nombreGrafo.setText("");
+				nombreVerticeGrafo.setText("");
 				textFieldPosX.setText("");
 				textFieldPosY.setText("");
 			}
-		});
+		}); 
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		agregarVertice.setBounds(94, 253, 148, 46);
 		frame.getContentPane().add(agregarVertice);
-
+                
 		JButton btnCrearGrafo = new JButton("Listo");
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -143,6 +143,8 @@ public class InterfazClusAGM {
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCrearGrafo.setBounds(252, 253, 148, 46);
 		frame.getContentPane().add(btnCrearGrafo);
+    
+        } 
 
-	}
-}
+ }
+

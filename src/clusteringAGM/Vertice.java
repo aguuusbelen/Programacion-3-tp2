@@ -21,7 +21,7 @@ public class Vertice {
 	
 	public Vertice(String nombreDeNodo) {
 		this.nombreDeNodo = nombreDeNodo;
-		vecinosPesos = new HashMap<>();
+		vecinosPesos = new HashMap<String, Integer>();
 	}
 	
 	/**

@@ -12,7 +12,7 @@ public class Sistema {
 
 	public Sistema() {
 		grafo = new Grafo();
-		listaVertices = new HashMap<>();
+		listaVertices = new HashMap<String, Point>();
 	}
 
 	public void agregarVertice(String nombre, Integer posicionX, Integer posicionY) {
