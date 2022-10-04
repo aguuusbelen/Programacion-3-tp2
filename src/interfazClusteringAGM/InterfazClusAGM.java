@@ -24,7 +24,7 @@ public class InterfazClusAGM {
 	private JTextField textFieldPosX;
 	private JTextField nombreGrafo;
 	private JTextField textFieldPosY;
-	private Sistema aplicacion;
+	private Sistema sistema;
 
 	/**
 	 * Launch the application.
@@ -46,7 +46,7 @@ public class InterfazClusAGM {
 	 * Create the application.
 	 */
 	public InterfazClusAGM() {
-		aplicacion = new Sistema();
+		sistema = new Sistema();
 		initialize();
 	}
 
@@ -120,7 +120,7 @@ public class InterfazClusAGM {
 		JButton agregarVertice = new JButton("Agregar punto");
 		agregarVertice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				aplicacion.agregarVertice(nuevoPunto.getText(), Integer.parseInt(textFieldPosX.getText()),
+				sistema.agregarVertice(nuevoPunto.getText(), Integer.parseInt(textFieldPosX.getText()),
 						Integer.parseInt(textFieldPosY.getText()));
 				nombreGrafo.setText("");
 				textFieldPosX.setText("");
@@ -134,8 +134,8 @@ public class InterfazClusAGM {
 		JButton btnCrearGrafo = new JButton("Listo");
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				aplicacion.crearGrafo();
-				Interfaz interfaz = new Interfaz();
+				sistema.crearGrafo();
+				Interfaz interfaz = new Interfaz(sistema);
 				interfaz.getFrame().setVisible(true);
 				
 			}

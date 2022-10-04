@@ -4,8 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import clusteringAGM.Sistema;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -14,28 +19,13 @@ import javax.swing.JButton;
 public class Interfaz {
 
 	private JFrame frame;
-	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interfaz window = new Interfaz();
-					window.getFrame().setVisible(false);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
+	private JTextField textFieldCantClusters;
+	private Sistema sistema;
 	/**
 	 * Create the application.
 	 */
-	public Interfaz() {
+	public Interfaz(Sistema sistema) {
+		this.sistema = sistema;
 		initialize();
 	}
 
@@ -48,8 +38,8 @@ public class Interfaz {
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrame().getContentPane().setLayout(null);
 		
-		textField = new JTextField();
-		textField.addKeyListener(new KeyAdapter() {
+		textFieldCantClusters = new JTextField();
+		textFieldCantClusters.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 
@@ -58,9 +48,9 @@ public class Interfaz {
 				}
 			}
 		});
-		textField.setBounds(282, 67, 96, 30);
-		getFrame().getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldCantClusters.setBounds(282, 67, 96, 30);
+		getFrame().getContentPane().add(textFieldCantClusters);
+		textFieldCantClusters.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Ingrese cantidad de clusters:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -68,6 +58,11 @@ public class Interfaz {
 		getFrame().getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("LISTO");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sistema.generarClusters(Integer.parseInt(textFieldCantClusters.getText()));
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(164, 144, 121, 30);
 		getFrame().getContentPane().add(btnNewButton);
