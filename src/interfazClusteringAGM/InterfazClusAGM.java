@@ -120,7 +120,9 @@ public class InterfazClusAGM {
 		JButton agregarVertice = new JButton("Agregar punto");
 		agregarVertice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sistema.agregarVertice(nuevoPunto.getText(), Integer.parseInt(textFieldPosX.getText()),
+				sistema.agregarVertice(nombreGrafo.getText(), Integer.parseInt(textFieldPosX.getText()),
+						Integer.parseInt(textFieldPosY.getText()));
+				System.out.println(nombreGrafo.getText() + Integer.parseInt(textFieldPosX.getText()) +
 						Integer.parseInt(textFieldPosY.getText()));
 				nombreGrafo.setText("");
 				textFieldPosX.setText("");

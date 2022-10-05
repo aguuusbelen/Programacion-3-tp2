@@ -23,14 +23,23 @@ public class Grafo {
 	}
 
 	public void agregarArista(Point vertice1, Point vertice2) {
+		System.out.print(vertice1);
 		Arista arista = new Arista(vertice1, vertice2);
 		Integer peso = (int) arista.getPeso();
 		
 		listaAristas.put(arista, peso);
 	}	
 	
+	public HashMap<Arista, Integer> getListaAristas() {
+		return listaAristas;
+	}
+// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
 	public void arbolGeneradorMinimo() {
-		// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
+		for(Arista arista: listaAristas.keySet()) {
+			arista.getCoor1();
+		}
+		
+		
 	}
 
 	

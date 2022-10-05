@@ -26,6 +26,14 @@ public class Arista {
 	public double getPeso() {
 		return peso;
 	}
+
+	public Point getCoor1() {
+		return coor1;
+	}
+
+	public Point getCoor2() {
+		return coor2;
+	}
 	
 	
 }
