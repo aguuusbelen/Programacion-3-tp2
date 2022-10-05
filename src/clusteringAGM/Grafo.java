@@ -7,8 +7,7 @@ import java.util.List;
 
 public class Grafo {
 
-	private List<Vertice> grafo; /* List que contiene los nodos del grafo */
-	
+	private List<Vertice> grafo; /* List que contiene los nodos del grafo */	
 	private HashMap <Arista, Integer> listaAristas; //<String, Integer>
 
 	/**
@@ -18,8 +17,7 @@ public class Grafo {
 	 **/
 
 	public Grafo() {
-		grafo = new LinkedList<>();
-		
+		grafo = new LinkedList<Vertice>();
 	}
 
 	public void agregarArista(Point vertice1, Point vertice2) {
@@ -42,10 +40,6 @@ public class Grafo {
 		
 	}
 
-	
-	
-	
-	
 	
 	/**
 	 * <b>insertarVertice (): </b></br>
@@ -76,9 +70,9 @@ public class Grafo {
 		int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
 		Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
 
-		for (int i = 0; i < nombresDeVecinos.length; i++) {
-			nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecinos[i], null);
-		}
+            for(String nombresDeVecino : nombresDeVecinos) {
+                nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecino, null);
+            }
 
 	}
 
