@@ -18,6 +18,7 @@ public class Grafo {
 
 	public Grafo() {
 		grafo = new LinkedList<Vertice>();
+		listaAristas = new HashMap<>();
 	}
 
 	public void agregarArista(Point vertice1, Point vertice2) {

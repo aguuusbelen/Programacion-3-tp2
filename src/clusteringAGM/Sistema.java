@@ -24,10 +24,8 @@ public class Sistema {
 	public void crearGrafo() {
 		for (int i = 0; i < listaVertices.size(); ++i) {
 			for (String vertice1 : listaVertices.keySet()) {
-				System.out.print(vertice1);
 				for (String vertice2 : listaVertices.keySet()) {
-					System.out.print(vertice2);
-					if (vertice1 != vertice2) {
+					if (listaVertices.get(vertice1) != listaVertices.get(vertice2)) {   //vertice1 != vertice2
 						grafo.agregarArista(listaVertices.get(vertice1), listaVertices.get(vertice2));
 						
 					}
