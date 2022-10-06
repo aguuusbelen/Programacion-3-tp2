@@ -3,37 +3,51 @@ package clusteringAGM;
 import java.awt.Point;
 
 public class Arista {
-	private Point coor1;
-	private Point coor2;
-	private double peso;
 	
-	public Arista(Point coordenada1, Point coordenada2) {
-		coor1 = coordenada1;
-		coor2 = coordenada2;
-		peso = calcularDistancia(coordenada1, coordenada2);
+	private double peso; // Peso de la arista
+	private Vertice vertice1; //Vertice de la arista
+	private Vertice vertice2; //Vertice de la arista
+	
+	
+	public Arista(Vertice vertice1, Vertice vertice2) {
+		
+		this.vertice1 = vertice1;
+		this.vertice2 = vertice2;
+		
 	}
 	
-	public double calcularDistancia(Point vertice1, Point vertice2) {
+	
+	public void calcularDistancia(Point vertice1, Point vertice2) {
 		
 		double diferenciaX = vertice2.x - vertice1.x;
 		double diferenciaY = vertice2.y - vertice1.y;
 		double distancia = Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
 		
-		return distancia;
+		peso = distancia;
+		
 	
 	}
 
+	// Getters && Setters
+	
 	public double getPeso() {
 		return peso;
 	}
 
-	public Point getCoor1() {
-		return coor1;
+	public Point getCoordenada1() {
+		return vertice1.getcoordenadaVertice();
 	}
 
-	public Point getCoor2() {
-		return coor2;
+	public Point getCoordenada2() {
+		return vertice2.getcoordenadaVertice();
 	}
 	
+	public Vertice getVertice1Artista() {
+		return this.vertice1;
+	}
+	
+	public Vertice getVertice2Artista() {
+		return this.vertice2;
+	}
 	
 }

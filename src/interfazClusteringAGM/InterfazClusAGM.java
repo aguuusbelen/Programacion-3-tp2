@@ -1,6 +1,5 @@
 package interfazClusteringAGM;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,8 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import javax.swing.JButton;
 
 public class InterfazClusAGM {
@@ -29,6 +26,7 @@ public class InterfazClusAGM {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -134,7 +132,7 @@ public class InterfazClusAGM {
 		JButton btnCrearGrafo = new JButton("Listo");
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sistema.crearGrafo();
+				//sistema.crearGrafo();
 				Interfaz interfaz = new Interfaz(sistema);
 				interfaz.getFrame().setVisible(true);
 				

@@ -1,14 +1,12 @@
 package clusteringAGM;
 
-import java.awt.Point;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Grafo {
 
-	private List<Vertice> grafo; /* List que contiene los nodos del grafo */	
-	private HashMap <Arista, Integer> listaAristas; //<String, Integer>
+	private List<Vertice> grafo; // Dentro de esta lista ya estarian los vertices cada uno con su coordenada.
+	private List<Arista> listaAristas; // List con aristas del grafo. Tiene dentro de arista el peso.
 
 	/**
 	 * <b>Constructor: </b></br>
@@ -16,56 +14,82 @@ public class Grafo {
 	 * 
 	 **/
 
-	public Grafo() {
+	public Grafo(){
+		
 		grafo = new LinkedList<Vertice>();
-		listaAristas = new HashMap<>();
+		listaAristas = new LinkedList<Arista>();
+		
 	}
 
-	public void agregarArista(Point vertice1, Point vertice2) {
-		System.out.print(vertice1);
-		Arista arista = new Arista(vertice1, vertice2);
-		Integer peso = (int) arista.getPeso();
+	/**
+	 * <b>insertarVertice(): </b></br>
+	 * <u>Metodo que inserta un nuevo vertice en el grafo con su posicion correspondiente.</u>
+	 * 
+	 * @param nombreDelVertice
+	 * <i>Nombre del vertice.</i>
+	 * @param coordenadaX
+	 * <i>Coordenada del vertice en X.</i>
+	 * @param coordenadaY
+	 * <i>Coordenada del vertice en Y.</i>
+	 **/
+	
+	public void insertarVertice(String nombreDelVertice, double coordenadaX, double coordenadaY) {
+
+		Vertice nuevoVertice = new Vertice(nombreDelVertice);
+		nuevoVertice.insertarCoordenadas(coordenadaX, coordenadaY);
+		grafo.add(nuevoVertice);
+
+	}
+
+	/**
+	 * <b>agregarArista(): </b></br>
+	 * <u>Metodo que une dos vertice en el grafo, y crea la arista correspondiente.</u>
+	 * 
+	 * @param vertice1
+	 * <i>Nombre del Vertice 1 de la arista.</i>
+	 * @param vertice2
+	 * <i>Nombre del Vertice 2 de la arista.</i>
+	 **/
+	
+	public void agregarArista(Vertice vertice1, Vertice vertice2) {
 		
-		listaAristas.put(arista, peso);
+		Arista nuevaArista = new Arista(vertice1, vertice2);
+		listaAristas.add(nuevaArista);
+		
 	}	
 	
-	public HashMap<Arista, Integer> getListaAristas() {
+	
+	/** 
+	 * <b>getListaAristas(): </b></br>
+	 * <u>Devuelve la lista de aristas del grafo.</u>
+	 **/
+	
+	public List<Arista> getListaAristas() {
 		return listaAristas;
 	}
-// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
-	public void arbolGeneradorMinimo() {
-		for(Arista arista: listaAristas.keySet()) {
-			arista.getCoor1();
-		}
-		
-		
-	}
-
 	
-	/**
-	 * <b>insertarVertice (): </b></br>
-	 * <u>Metodo que inserta un nuevo nodo en el grafo.</u>
-	 * 
-	 **/
-	public void insertarVertice(String nombreDelVertice) {
-
-		Vertice nodoGrafo = new Vertice(nombreDelVertice);
-		grafo.add(nodoGrafo);
-
-	}
+	
+// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
+//	public void arbolGeneradorMinimo() {
+//		for(Arista arista: listaAristas.size())) {
+//			arista.getCoor1();
+//		}
+//		
+//		
+//	}
+	
 
 	/**
 	 * <b>rellenarVecinosDeNodo(): </b></br>
 	 * <u>Metodo que inserta los vecinos de un nodo.</u>
 	 * 
-	 * @param nombreDelNodo    <u>Nombre del nodo al que le insertan sus
-	 *                         vecinos.</u>
-	 * 
-	 * @param nombresDeVecinos <u>Array con nombres de los vecinos del nodo.</u>
+	 * @param nombreDelNodo    
+	 * <i>Nombre del nodo al que le insertan su vecinos.</i>
+	 * @param nombresDeVecinos
+	 *  <i>Array con nombres de los vecinos del nodo.</i>
 	 * 
 	 **/
 
-	// ?? tengo que isertar pesos aca tambien ??
 	public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
 
 		int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
@@ -124,6 +148,10 @@ public class Grafo {
 		return index;
 	}
 
+	// Getters && Setters
+	public int getCantidadDeVertices() {
+		return grafo.size();
+	}
 
 	
 }
