@@ -1,5 +1,9 @@
 package clusteringAGM;
 
+
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +11,7 @@ public class Grafo {
 
 	private List<Vertice> grafo; // Dentro de esta lista ya estarian los vertices cada uno con su coordenada.
 	private List<Arista> listaAristas; // List con aristas del grafo. Tiene dentro de arista el peso.
+	private HashMap <Arista, Integer> grafoAGM;
 
 	/**
 	 * <b>Constructor: </b></br>
@@ -56,6 +61,7 @@ public class Grafo {
 		Arista nuevaArista = new Arista(vertice1, vertice2);
 		listaAristas.add(nuevaArista);
 		
+
 	}	
 	
 	
@@ -67,18 +73,28 @@ public class Grafo {
 	public List<Arista> getListaAristas() {
 		return listaAristas;
 	}
-	
-	
-// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
-//	public void arbolGeneradorMinimo() {
-//		for(Arista arista: listaAristas.size())) {
-//			arista.getCoor1();
+
+
+//	public boolean existeAristaEnGrafo(Point point1, Point point2) {
+//		for (Arista arista : listaAristas.keySet()) {
+//			if ((point1 == arista.getCoordenada1() && point2 == arista.getCoordenada2()) || 
+//					(point2 == arista.getCoordenada1() && point1 == arista.getCoordenada2())) {
+//				return true;
+//			}
 //		}
-//		
-//		
+//		return false;
 //	}
 	
-
+// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
+	public void arbolGeneradorMinimo(int cantidadVertices) {
+		List<Point> listaVertices = new ArrayList<>();
+		while(listaVertices.size() < cantidadVertices) {
+			
+		}
+/*		for(Arista arista: listaAristas.keySet()) {
+		}*/
+	}
+	
 	/**
 	 * <b>rellenarVecinosDeNodo(): </b></br>
 	 * <u>Metodo que inserta los vecinos de un nodo.</u>
