@@ -1,6 +1,7 @@
 package clusteringAGM;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +9,8 @@ import java.util.List;
 public class Grafo {
 
 	private List<Vertice> grafo; /* List que contiene los nodos del grafo */	
-	private HashMap <Arista, Integer> listaAristas; //<String, Integer>
+	private HashMap <Arista, Integer> listaAristas; //<String, Integer>	
+	private HashMap <Arista, Integer> grafoAGM;
 
 	/**
 	 * <b>Constructor: </b></br>
@@ -22,23 +24,33 @@ public class Grafo {
 	}
 
 	public void agregarArista(Point vertice1, Point vertice2) {
-		System.out.print(vertice1);
 		Arista arista = new Arista(vertice1, vertice2);
 		Integer peso = (int) arista.getPeso();
-		
 		listaAristas.put(arista, peso);
 	}	
 	
 	public HashMap<Arista, Integer> getListaAristas() {
 		return listaAristas;
 	}
-// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
-	public void arbolGeneradorMinimo() {
-		for(Arista arista: listaAristas.keySet()) {
-			arista.getCoor1();
+
+	public boolean existeAristaEnGrafo(Point point1, Point point2) {
+		for (Arista arista : listaAristas.keySet()) {
+			if ((point1 == arista.getCoor1() && point2 == arista.getCoor2()) || 
+					(point2 == arista.getCoor1() && point1 == arista.getCoor2())) {
+				return true;
+			}
 		}
-		
-		
+		return false;
+	}
+	
+// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
+	public void arbolGeneradorMinimo(int cantidadVertices) {
+		List<Point> listaVertices = new ArrayList<>();
+		while(listaVertices.size() < cantidadVertices) {
+			
+		}
+/*		for(Arista arista: listaAristas.keySet()) {
+		}*/
 	}
 
 	

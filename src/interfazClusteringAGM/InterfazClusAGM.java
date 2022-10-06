@@ -56,7 +56,7 @@ public class InterfazClusAGM {
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 510, 358);
+		frame.setBounds(100, 100, 510, 440);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -128,10 +128,11 @@ public class InterfazClusAGM {
 			}
 		}); 
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		agregarVertice.setBounds(94, 253, 148, 46);
+		agregarVertice.setBounds(178, 252, 148, 46);
 		frame.getContentPane().add(agregarVertice);
                 
-		JButton btnCrearGrafo = new JButton("Listo");
+		JButton btnCrearGrafo = new JButton("Continuar");
+		btnCrearGrafo.setBackground(new Color(152, 251, 152));
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sistema.crearGrafo();
@@ -141,7 +142,7 @@ public class InterfazClusAGM {
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnCrearGrafo.setBounds(252, 253, 148, 46);
+		btnCrearGrafo.setBounds(178, 322, 148, 46);
 		frame.getContentPane().add(btnCrearGrafo);
     
         } 
