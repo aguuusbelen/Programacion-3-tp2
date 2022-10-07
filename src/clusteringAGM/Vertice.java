@@ -8,8 +8,7 @@ public class Vertice {
 	
 	private String nombreDeVertice; // Nombre del vertice
 	private Point coordenadaVertice; // Coordenadas del vertice.
-	private HashMap<String, Integer> vecinosPesos; // ??? debemos conservar esto ???
-	// Capaz deberia tener los pesos desde el mismo hacia los otros.
+	private HashMap<String, Integer> vecinosPesos;
 	
 	/**
 	 * <b>Constructor: </b></br>
@@ -22,9 +21,9 @@ public class Vertice {
 	
 	public Vertice(String nombreDeVertice){
 		
+		coordenadaVertice = new Point();
 		this.nombreDeVertice = nombreDeVertice;
 		vecinosPesos = new HashMap<String, Integer>();
-		coordenadaVertice = new Point();
 		
 	}
 	

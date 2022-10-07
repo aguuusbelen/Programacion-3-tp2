@@ -36,11 +36,42 @@ public class Sistema {
 	public void agregarVertice(String nombreDelVertice, double posicionX, double posicionY) {
 		
 		listaVertices.add(nombreDelVertice);
-		grafo.insertarVertice(nombreDelVertice, posicionX, posicionY);
+		
+		try {
+			grafo.insertarVertice(nombreDelVertice, posicionX, posicionY);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	
-	// Crear artistas del grafo, unir el grafo
+	
+	// Crear artistas del grafo (unir el grafo).
+	public void unirElGrafo() {
+		
+		LinkedList<Vertice> listaDeVerticesDeGrafo = grafo.getVerticesGrafo();
+		
+		// Recorrido sobre vertices del grafo.
+		// Metodo que recorre linkedlist de nombre de vertices agregados y compara y crea las aristas.
+		for(int i = 0; i < listaDeVerticesDeGrafo.size(); i++)
+			crearAristasParaVertice(listaDeVerticesDeGrafo.get(i), listaDeVerticesDeGrafo);
+		
+	}
+	
+	private void crearAristasParaVertice(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
+		
+		for(int i = 0; i < listaDeVertices.size(); i++){
+			
+			// Si el vertice es diferente a si mismo, se crea la arista correspondiente 
+			// y ademas si la arista no existe previamente, la agrega.
+			if(!verticeDelGrafo.getNombre().equals(listaDeVertices.get(i).getNombre()) && 
+			   !grafo.existeAristaEnGrafo(verticeDelGrafo, listaDeVertices.get(i)))
+				grafo.agregarArista(verticeDelGrafo, listaDeVertices.get(i));
+			
+		}
+		
+	}
 	
 //	public void crearGrafo() {
 //		for (int i = 0; i < listaVertices.size(); ++i) { // O(n**3)
@@ -57,6 +88,8 @@ public class Sistema {
 //			
 //		//grafo.arbolGeneradorMinimo(); // Una vez que tengo el grafo completo, recorto para generar un arbol
 //	}
+	
+	
 
 	public void generarClusters(Integer cantidad) {
 		// TODO Auto-generated method stub

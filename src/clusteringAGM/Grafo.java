@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Grafo {
 
-	private List<Vertice> grafo; // Dentro de esta lista ya estarian los vertices cada uno con su coordenada.
-	private List<Arista> listaAristas; // List con aristas del grafo. Tiene dentro de arista el peso.
-	private HashMap <Arista, Integer> grafoAGM;
+	private LinkedList<Vertice> grafo; // Dentro de esta lista ya estarian los vertices cada uno con su coordenada.
+	private LinkedList<Arista> listaAristas; // List con aristas del grafo. Tiene dentro de arista el peso.
+	//private HashMap <Arista, Integer> grafoAGM;
 
 	/**
 	 * <b>Constructor: </b></br>
@@ -36,10 +36,15 @@ public class Grafo {
 	 * <i>Coordenada del vertice en X.</i>
 	 * @param coordenadaY
 	 * <i>Coordenada del vertice en Y.</i>
+	 * @throws Exception El nombre ya existe en el grafo
 	 **/
 	
-	public void insertarVertice(String nombreDelVertice, double coordenadaX, double coordenadaY) {
-
+	public void insertarVertice(String nombreDelVertice, double coordenadaX, double coordenadaY) throws Exception {
+		
+		// No puede haber dos vertices con el mismo nombre.
+		if(existeVertice(nombreDelVertice))
+			throw new Exception("El nombre ya existe en el grafo");
+		
 		Vertice nuevoVertice = new Vertice(nombreDelVertice);
 		nuevoVertice.insertarCoordenadas(coordenadaX, coordenadaY);
 		grafo.add(nuevoVertice);
@@ -65,25 +70,33 @@ public class Grafo {
 	}	
 	
 	
+	public LinkedList<Vertice> getVerticesGrafo() {
+		return grafo;
+	}
+
+	
 	/** 
 	 * <b>getListaAristas(): </b></br>
 	 * <u>Devuelve la lista de aristas del grafo.</u>
 	 **/
 	
-	public List<Arista> getListaAristas() {
+	public LinkedList<Arista> getListaAristas() {
 		return listaAristas;
 	}
-
-
-//	public boolean existeAristaEnGrafo(Point point1, Point point2) {
-//		for (Arista arista : listaAristas.keySet()) {
-//			if ((point1 == arista.getCoordenada1() && point2 == arista.getCoordenada2()) || 
-//					(point2 == arista.getCoordenada1() && point1 == arista.getCoordenada2())) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+	
+	public boolean existeAristaEnGrafo(Vertice vertice1, Vertice vertice2) {
+		
+		boolean existeArista = false;
+		for(int i = 0; i < listaAristas.size(); i++){
+			
+			Arista arista = listaAristas.get(i);
+			if(arista.getVertice1Artista() == vertice1 && arista.getVertice2Artista() == vertice2)
+				existeArista = true;
+			
+		}
+		
+		return existeArista;
+	}
 	
 // https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
 	public void arbolGeneradorMinimo(int cantidadVertices) {
@@ -164,6 +177,19 @@ public class Grafo {
 		return index;
 	}
 
+	private boolean existeVertice(String nombreDeVertice) {
+		
+		boolean existe = false;
+		
+		for(int i = 0; i < grafo.size(); i++) {
+			if(grafo.get(i).getNombre().equals(nombreDeVertice))
+				existe = true;
+		}
+		
+		return existe;
+	}
+	
+	
 	// Getters && Setters
 	public int getCantidadDeVertices() {
 		return grafo.size();
