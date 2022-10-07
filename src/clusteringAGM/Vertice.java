@@ -8,7 +8,7 @@ public class Vertice {
 	
 	private String nombreDeVertice; // Nombre del vertice
 	private Point coordenadaVertice; // Coordenadas del vertice.
-	private HashMap<String, Integer> vecinosPesos;
+	private HashMap<String, Integer> vecinosPesos; // Me parece que hace falta rellenar esto, para rapido acceso
 	
 	/**
 	 * <b>Constructor: </b></br>

@@ -5,8 +5,7 @@ import java.util.LinkedList;
 public class Sistema {
 
 	private Grafo grafo;
-	private LinkedList<String> listaVertices; /* Una lista SOLO de nombres de vertices 
-													agregados al sistema. */
+	private LinkedList<String> listaVertices; /* Una lista SOLO de nombres de vertices agregados al sistema. */
 	
 	/**
 	 * <b>Constructor: </b></br>
@@ -15,10 +14,8 @@ public class Sistema {
 	 **/
 	
 	public Sistema(){
-		
 		grafo = new Grafo();
 		listaVertices = new LinkedList<String>();
-		
 	}
 
 	/**
@@ -35,19 +32,20 @@ public class Sistema {
 	
 	public void agregarVertice(String nombreDelVertice, double posicionX, double posicionY) {
 		
-		listaVertices.add(nombreDelVertice);
-		
-		try {
+		try{
+			listaVertices.add(nombreDelVertice);
 			grafo.insertarVertice(nombreDelVertice, posicionX, posicionY);
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		} catch(Exception e) { e.printStackTrace(); }
 		
 	}
 	
 	
-	// Crear artistas del grafo (unir el grafo).
+	/**
+	 * <b>unirElGrafo(): </b></br>
+	 * <u>Metodo que crea las artistas del grafo (union de vertices del grafo).</u>
+	 * 
+	 **/
+	
 	public void unirElGrafo() {
 		
 		LinkedList<Vertice> listaDeVerticesDeGrafo = grafo.getVerticesGrafo();
@@ -55,11 +53,22 @@ public class Sistema {
 		// Recorrido sobre vertices del grafo.
 		// Metodo que recorre linkedlist de nombre de vertices agregados y compara y crea las aristas.
 		for(int i = 0; i < listaDeVerticesDeGrafo.size(); i++)
-			crearAristasParaVertice(listaDeVerticesDeGrafo.get(i), listaDeVerticesDeGrafo);
+			crearAristasDelGrafo(listaDeVerticesDeGrafo.get(i), listaDeVerticesDeGrafo);
 		
+		//grafo.arbolGeneradorMinimo();
 	}
 	
-	private void crearAristasParaVertice(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
+	/**
+	 * <b>crearAristasDelGrafo(): </b></br>
+	 * <u>Metodo que crea las aristas, pero verifica que no existan ya en el grafo esa arista.</u>
+	 * 
+	 * @param verticeDelGrafo
+	 * <i>Vertice del que se le une a otro vertice, y crea las correspodientes aristas.</i>
+	 * @param listaDeVertices
+	 * <i>Lista de vertices del grafo.</i>
+	 **/
+	
+	private void crearAristasDelGrafo(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
 		
 		for(int i = 0; i < listaDeVertices.size(); i++){
 			
@@ -73,24 +82,6 @@ public class Sistema {
 		
 	}
 	
-//	public void crearGrafo() {
-//		for (int i = 0; i < listaVertices.size(); ++i) { // O(n**3)
-//			for (String vertice1 : listaVertices.keySet()) {
-//				for (String vertice2 : listaVertices.keySet()) {
-//					if (listaVertices.get(vertice1) != listaVertices.get(vertice2)) {   //vertice1 != vertice2
-//						grafo.agregarArista(listaVertices.get(vertice1), listaVertices.get(vertice2));
-//						
-//					}
-//
-//				}
-//			}
-//		}
-//			
-//		//grafo.arbolGeneradorMinimo(); // Una vez que tengo el grafo completo, recorto para generar un arbol
-//	}
-	
-	
-
 	public void generarClusters(Integer cantidad) {
 		// TODO Auto-generated method stub
 	}

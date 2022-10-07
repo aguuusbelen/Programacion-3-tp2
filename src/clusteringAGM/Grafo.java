@@ -3,7 +3,7 @@ package clusteringAGM;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,18 +62,18 @@ public class Grafo {
 	 **/
 	
 	public void agregarArista(Vertice vertice1, Vertice vertice2) {
-		
 		Arista nuevaArista = new Arista(vertice1, vertice2);
 		listaAristas.add(nuevaArista);
-		
-
 	}	
 	
+	/** 
+	 * <b>getVerticesGrafo(): </b></br>
+	 * <u>Devuelve los vertices del grafo.</u>
+	 **/
 	
 	public LinkedList<Vertice> getVerticesGrafo() {
 		return grafo;
 	}
-
 	
 	/** 
 	 * <b>getListaAristas(): </b></br>
@@ -83,6 +83,17 @@ public class Grafo {
 	public LinkedList<Arista> getListaAristas() {
 		return listaAristas;
 	}
+	
+	/**
+	 * <b>existeAristaEnGrafo(): </b></br>
+	 * <u>Metodo que devuelve si existe o no una arista en el grafo.</u>
+	 * 
+	 * @param vertice1
+	 * <i>Nombre del Vertice 1 de la arista.</i>
+	 * @param vertice2
+	 * <i>Nombre del Vertice 2 de la arista.</i>
+	 * @return True o False segun exista la arista en el grafo.
+	 **/
 	
 	public boolean existeAristaEnGrafo(Vertice vertice1, Vertice vertice2) {
 		
