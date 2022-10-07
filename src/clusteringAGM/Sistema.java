@@ -76,7 +76,7 @@ public class Sistema {
 			// y ademas si la arista no existe previamente, la agrega.
 			if(!verticeDelGrafo.getNombre().equals(listaDeVertices.get(i).getNombre()) && 
 			   !grafo.existeAristaEnGrafo(verticeDelGrafo, listaDeVertices.get(i)))
-				grafo.agregarArista(verticeDelGrafo, listaDeVertices.get(i));
+				grafo.crearNuevaArista(verticeDelGrafo, listaDeVertices.get(i));
 			
 		}
 		

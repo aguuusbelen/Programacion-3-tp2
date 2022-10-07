@@ -14,12 +14,12 @@ public class Arista {
 		this.vertice2 = vertice2;
 	}
 	
-	public void calcularDistancia(Point vertice1, Point vertice2) {
-		
-		double diferenciaX = vertice2.x - vertice1.x;
-		double diferenciaY = vertice2.y - vertice1.y;
-		double distancia = Math.sqrt(Math.pow(diferenciaX, 2) + Math.pow(diferenciaY, 2));
-		
+	public void calcularDistancia() {
+		Point coordenadaDeVertice1 = vertice1.getcoordenadaVertice();
+		Point coordenadaDeVertice2 = vertice2.getcoordenadaVertice();
+		double diferenciaEnX = coordenadaDeVertice1.x - coordenadaDeVertice2.x;
+		double diferenciaEnY = coordenadaDeVertice2.y - coordenadaDeVertice1.y;
+		double distancia = Math.sqrt(Math.pow(diferenciaEnX, 2) + Math.pow(diferenciaEnY, 2));
 		peso = distancia;
 	}
 

@@ -48,7 +48,7 @@ public class Grafo {
 	}
 
 	/**
-	 * <b>agregarArista(): </b></br>
+	 * <b>crearNuevaArista(): </b></br>
 	 * <u>Metodo que une dos vertice en el grafo, y crea la arista correspondiente.</u>
 	 * 
 	 * @param vertice1
@@ -57,10 +57,11 @@ public class Grafo {
 	 * <i>Nombre del Vertice 2 de la arista.</i>
 	 **/
 	
-	public void agregarArista(Vertice vertice1, Vertice vertice2) {
+	public void crearNuevaArista(Vertice vertice1, Vertice vertice2) {
 		Arista nuevaArista = new Arista(vertice1, vertice2);
+		nuevaArista.calcularDistancia();
 		listaAristas.add(nuevaArista);
-	}	
+	}
 	
 	/**
 	 * <b>existeAristaEnGrafo(): </b></br>
