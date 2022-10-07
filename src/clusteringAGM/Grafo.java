@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Grafo {
 
-	private LinkedList<Vertice> grafo; // Dentro de esta lista ya estarian los vertices cada uno con su coordenada.
-	private LinkedList<Arista> listaAristas; // List con aristas del grafo. Tiene dentro de arista el peso.
+	private LinkedList<Vertice> grafo; // Vertices del grafo, cada uno con su coordenada.
+	private LinkedList<Arista> listaAristas; // Aristas del grafo.
 	//private HashMap <Arista, Integer> grafoAGM;
 
 	/**
@@ -20,10 +20,8 @@ public class Grafo {
 	 **/
 
 	public Grafo(){
-		
 		grafo = new LinkedList<Vertice>();
 		listaAristas = new LinkedList<Arista>();
-		
 	}
 
 	/**
@@ -41,14 +39,12 @@ public class Grafo {
 	
 	public void insertarVertice(String nombreDelVertice, double coordenadaX, double coordenadaY) throws Exception {
 		
-		// No puede haber dos vertices con el mismo nombre.
-		if(existeVertice(nombreDelVertice))
-			throw new Exception("El nombre ya existe en el grafo");
+		if(existeVertice(nombreDelVertice) && nombreDelVertice != null)
+			throw new Exception("El nombre ya existe en el grafo o es nulo.");
 		
 		Vertice nuevoVertice = new Vertice(nombreDelVertice);
 		nuevoVertice.insertarCoordenadas(coordenadaX, coordenadaY);
 		grafo.add(nuevoVertice);
-
 	}
 
 	/**
@@ -66,24 +62,6 @@ public class Grafo {
 		listaAristas.add(nuevaArista);
 	}	
 	
-	/** 
-	 * <b>getVerticesGrafo(): </b></br>
-	 * <u>Devuelve los vertices del grafo.</u>
-	 **/
-	
-	public LinkedList<Vertice> getVerticesGrafo() {
-		return grafo;
-	}
-	
-	/** 
-	 * <b>getListaAristas(): </b></br>
-	 * <u>Devuelve la lista de aristas del grafo.</u>
-	 **/
-	
-	public LinkedList<Arista> getListaAristas() {
-		return listaAristas;
-	}
-	
 	/**
 	 * <b>existeAristaEnGrafo(): </b></br>
 	 * <u>Metodo que devuelve si existe o no una arista en el grafo.</u>
@@ -96,18 +74,32 @@ public class Grafo {
 	 **/
 	
 	public boolean existeAristaEnGrafo(Vertice vertice1, Vertice vertice2) {
-		
 		boolean existeArista = false;
 		for(int i = 0; i < listaAristas.size(); i++){
-			
 			Arista arista = listaAristas.get(i);
 			if(arista.getVertice1Artista() == vertice1 && arista.getVertice2Artista() == vertice2)
-				existeArista = true;
-			
-		}
-		
+				existeArista = true;	
+		}	
 		return existeArista;
 	}
+	
+	/**
+	 * <b>existeVertice(): </b></br>
+	 * <u>Metodo que devuelve si existe o no un vertice en el grafo.</u>
+	 * 
+	 * @param nombreDeVertice
+	 * <i>Nombre del Vertice.</i>
+	 * @return Retorna si el vertice existe true, si no false.
+	 **/
+	
+	public boolean existeVertice(String nombreDeVertice) {
+			boolean existe = false;
+			for(int i = 0; i < grafo.size(); i++) {
+				if(grafo.get(i).getNombre().equals(nombreDeVertice))
+					existe = true;
+			}
+			return existe;
+		}
 	
 // https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
 	public void arbolGeneradorMinimo(int cantidadVertices) {
@@ -131,14 +123,12 @@ public class Grafo {
 	 **/
 
 	public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
-
 		int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
 		Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
-
+		
             for(String nombresDeVecino : nombresDeVecinos) {
                 nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecino, null);
             }
-
 	}
 
 	/**
@@ -166,12 +156,8 @@ public class Grafo {
 	/**
 	 * <b>darVecinosDeNodo(): </b></br>
 	 * <u>Metodo que busca el index del nodo en la lista.</u>
-	 * 
-	 * @param nombreDelNodo <u>Nombre del nodo del que se busca su index en la
-	 *                      lista.</u>
-	 *
+	 * @param nombreDelNodo <u>Nombre del nodo del que se busca su index en la lista.</u>
 	 * @return int del index correspondiente en la lista de nodos del grafo.
-	 *
 	 **/
 
 	private int obtenerIndexDeNodo(String nombreDelNodo) {
@@ -187,24 +173,30 @@ public class Grafo {
 
 		return index;
 	}
-
-	private boolean existeVertice(String nombreDeVertice) {
-		
-		boolean existe = false;
-		
-		for(int i = 0; i < grafo.size(); i++) {
-			if(grafo.get(i).getNombre().equals(nombreDeVertice))
-				existe = true;
-		}
-		
-		return existe;
-	}
-	
 	
 	// Getters && Setters
+	
+	/** 
+	 * <b>getCantidadDeVertices():</b> Devuelve la cantidad de vertices del grafo.
+	 **/
+	
 	public int getCantidadDeVertices() {
 		return grafo.size();
 	}
 
+	/** 
+	 * <b>getVerticesGrafo(): </b> Devuelve los vertices del grafo.
+	 **/
 	
+	public LinkedList<Vertice> getVerticesGrafo() {
+		return grafo;
+	}
+	
+	/** 
+	 * <b>getListaAristas(): </b>Devuelve la lista de aristas del grafo.
+	 **/
+	
+	public LinkedList<Arista> getListaAristas() {
+		return listaAristas;
+	}
 }

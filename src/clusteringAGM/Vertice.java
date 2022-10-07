@@ -8,7 +8,17 @@ public class Vertice {
 	
 	private String nombreDeVertice; // Nombre del vertice
 	private Point coordenadaVertice; // Coordenadas del vertice.
-	private HashMap<String, Integer> vecinosPesos; // Me parece que hace falta rellenar esto, para rapido acceso
+	private HashMap<String, Integer> vecinosPesos;
+	
+	// Aristas del vertice
+	
+	// Despues que se crean todas las aristas, me fijo en cuales está implicado este vertice. Si esta 
+	// en alguno de los dos vertices que pertenecen a una arista, la agregao en la lista de aristas 
+	// del vertice dentro de esta clase.
+	
+	// Al tener las aristas puedo al recorrer los vertices mirar sus aristas y consultar
+	// los pesos de estas y determinar cual es la de menor peso. Luego puedo marcarlo al vertice 
+	// como ya recorrido/consultado.
 	
 	/**
 	 * <b>Constructor: </b></br>
