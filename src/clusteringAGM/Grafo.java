@@ -1,15 +1,10 @@
 package clusteringAGM;
 
-
-import java.awt.Point;
-import java.util.ArrayList;
-//import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Grafo {
 
-	private LinkedList<Vertice> grafo; // Vertices del grafo, cada uno con su coordenada.
+	private LinkedList<Vertice> listaVertices; // Vertices del grafo, cada uno con su coordenada.
 	private LinkedList<Arista> listaAristas; // Aristas del grafo.
 	//private HashMap <Arista, Integer> grafoAGM;
 
@@ -20,7 +15,7 @@ public class Grafo {
 	 **/
 
 	public Grafo(){
-		grafo = new LinkedList<Vertice>();
+		listaVertices = new LinkedList<Vertice>();
 		listaAristas = new LinkedList<Arista>();
 	}
 
@@ -44,7 +39,7 @@ public class Grafo {
 		
 		Vertice nuevoVertice = new Vertice(nombreDelVertice);
 		nuevoVertice.insertarCoordenadas(coordenadaX, coordenadaY);
-		grafo.add(nuevoVertice);
+		listaVertices.add(nuevoVertice);
 	}
 
 	/**
@@ -95,21 +90,33 @@ public class Grafo {
 	
 	public boolean existeVertice(String nombreDeVertice) {
 			boolean existe = false;
-			for(int i = 0; i < grafo.size(); i++) {
-				if(grafo.get(i).getNombre().equals(nombreDeVertice))
+			for(int i = 0; i < listaVertices.size(); i++) {
+				if(listaVertices.get(i).getNombre().equals(nombreDeVertice))
 					existe = true;
 			}
 			return existe;
 		}
 	
-// https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_Algoritmo_de_Kruskal_en_Java
-	public void arbolGeneradorMinimo(int cantidadVertices) {
-		List<Point> listaVertices = new ArrayList<>();
-		while(listaVertices.size() < cantidadVertices) {
-			
+// Toma el grafo completo y lo transforma en un AGM (guardando solo los datos que necesitamos para generar los clusters)
+	public void transformarArbolGeneradorMinimo() {
+		LinkedList<Vertice> listaVerticesAGM = new LinkedList<>();
+		LinkedList<Arista> listaAristasAGM = new LinkedList<>();
+		int indiceVertice = 0;
+		while(listaVerticesAGM.size() < listaVertices.size()) {
+			Vertice verticeMin = listaVertices.get(indiceVertice);
+			Arista aristaMin = null;
+			for(Arista arista: listaAristas) {
+				if ((arista.getCoordenada1() == verticeMin.getcoordenadaVertice() || arista.getCoordenada2() == verticeMin.getcoordenadaVertice())
+						&& (aristaMin == null || aristaMin.getPeso() > arista.getPeso())) {
+					aristaMin = arista;
+				}
+			}
+			listaVerticesAGM.add(verticeMin);
+			listaAristasAGM.add(aristaMin);
+			indiceVertice++;
 		}
-/*		for(Arista arista: listaAristas.keySet()) {
-		}*/
+		listaVertices = listaVerticesAGM;
+		listaAristas = listaAristasAGM;
 	}
 	
 	/**
@@ -125,7 +132,7 @@ public class Grafo {
 
 	public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
 		int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
-		Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
+		Vertice nodoParaInsertarVecinos = listaVertices.get(indexNodo);
 		
             for(String nombresDeVecino : nombresDeVecinos) {
                 nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecino, null);
@@ -146,7 +153,7 @@ public class Grafo {
 	public String[] obtenerVecinosDeVertice(String nombreDeNodo) {
 
 		int indexNodo = obtenerIndexDeNodo(nombreDeNodo);
-		Vertice nodoParaInsertarVecinos = grafo.get(indexNodo);
+		Vertice nodoParaInsertarVecinos = listaVertices.get(indexNodo);
 
 		String[] vecinosDeNodo = nodoParaInsertarVecinos.darVecinos();
 
@@ -165,9 +172,9 @@ public class Grafo {
 
 		int index = 0;
 
-		for (int i = 0; i < grafo.size(); i++) {
+		for (int i = 0; i < listaVertices.size(); i++) {
 
-			if (grafo.get(i).getNombre().equals(nombreDelNodo))
+			if (listaVertices.get(i).getNombre().equals(nombreDelNodo))
 				index = i;
 
 		}
@@ -182,7 +189,7 @@ public class Grafo {
 	 **/
 	
 	public int getCantidadDeVertices() {
-		return grafo.size();
+		return listaVertices.size();
 	}
 
 	/** 
@@ -190,7 +197,7 @@ public class Grafo {
 	 **/
 	
 	public LinkedList<Vertice> getVerticesGrafo() {
-		return grafo;
+		return listaVertices;
 	}
 	
 	/** 

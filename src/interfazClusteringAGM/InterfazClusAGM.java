@@ -27,7 +27,7 @@ public class InterfazClusAGM {
 	/**
 	 * Launch the application.
 	 */
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -125,26 +125,24 @@ public class InterfazClusAGM {
 				textFieldPosX.setText("");
 				textFieldPosY.setText("");
 			}
-		}); 
+		});
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		agregarVertice.setBounds(178, 252, 148, 46);
 		frame.getContentPane().add(agregarVertice);
-                
+
 		JButton btnCrearGrafo = new JButton("Continuar");
 		btnCrearGrafo.setBackground(new Color(152, 251, 152));
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//sistema.crearGrafo();
+				// sistema.crearGrafo();
 				Interfaz interfaz = new Interfaz(sistema);
 				interfaz.getFrame().setVisible(true);
-				
+
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCrearGrafo.setBounds(178, 322, 148, 46);
 		frame.getContentPane().add(btnCrearGrafo);
-    
-        } 
 
- }
-
+	}
+}
