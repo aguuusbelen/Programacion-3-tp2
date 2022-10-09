@@ -131,6 +131,24 @@ public class Grafo {
 		listaVertices = listaVerticesAGM;
 		listaAristas = listaAristasAGM;
 	}
+	
+	public void generarClusters(Integer cantidad) {
+		int contador = 0;
+		while(cantidad - 1 > contador) {
+			int indiceAristaMax = 0;
+			for (int i = 0; i < listaAristas.size(); i++) {
+				if (listaAristas.get(i).getPeso() > listaAristas.get(indiceAristaMax).getPeso()) {
+					indiceAristaMax = i;
+				}
+			}
+			eliminarArista(indiceAristaMax);
+			contador++;
+		}
+	}
+	
+	public void eliminarArista(int indiceArista) {
+		listaAristas.remove(indiceArista);
+	}
 
 	/**
 	 * <b>rellenarVecinosDeNodo(): </b></br>

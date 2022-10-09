@@ -58,6 +58,11 @@ public class Sistema {
 		//grafo.arbolGeneradorMinimo();
 	}
 	
+	public void crearGrafoAGM() {
+		grafo.CrearGrafo();
+		grafo.transformarArbolGeneradorMinimo();
+	}
+	
 	/**
 	 * <b>crearAristasDelGrafo(): </b></br>
 	 * <u>Metodo que crea las aristas, pero verifica que no existan ya en el grafo esa arista.</u>
@@ -83,7 +88,7 @@ public class Sistema {
 	}
 	
 	public void generarClusters(Integer cantidad) {
-		// TODO Auto-generated method stub
+		grafo.generarClusters(cantidad);
 	}
 
 //	public HashMap<String, Point> getListaVertices() {

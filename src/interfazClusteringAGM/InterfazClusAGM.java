@@ -134,7 +134,7 @@ public class InterfazClusAGM {
 		btnCrearGrafo.setBackground(new Color(152, 251, 152));
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// sistema.crearGrafo();
+				sistema.crearGrafoAGM();
 				Interfaz interfaz = new Interfaz(sistema);
 				interfaz.getFrame().setVisible(true);
 
