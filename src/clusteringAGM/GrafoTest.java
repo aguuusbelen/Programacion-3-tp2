@@ -16,9 +16,10 @@ public class GrafoTest {
 
 	@Before
 	public void seteoGrafoParaTest() throws Exception {
-		double coordenadaX = 15.0;
-		double coordenadaY = 16.0;
-		grafoTest.insertarVertice("C",coordenadaX, coordenadaY);	
+		grafoTest.insertarVertice("A", 5.0, 5.0);
+		grafoTest.insertarVertice("B", 7.0, 10.0);
+		grafoTest.insertarVertice("C", 12.0, 7.0);
+		grafoTest.insertarVertice("D", 6.0, 1.0);
 	}
 	
 	@Test
@@ -28,7 +29,7 @@ public class GrafoTest {
 	
 	@Test
 	public void testExisteVerticeFalse() {
-		assertFalse(grafoTest.existeVertice("B"));
+		assertFalse(grafoTest.existeVertice("E"));
 	}
 	
 	@Test // Testeando que ingresese un vertice al grafo.
@@ -37,8 +38,8 @@ public class GrafoTest {
 		double coordenadaY = 16.0;
 		
 		try {
-			grafoTest.insertarVertice("A",coordenadaX, coordenadaY);
-			grafoTest.insertarVertice("B",coordenadaX, coordenadaY);
+			grafoTest.insertarVertice("E", coordenadaX, coordenadaY);
+			grafoTest.insertarVertice("F", coordenadaX, coordenadaY);
 			assertTrue(grafoTest.getCantidadDeVertices() >= 1);
 		} catch (Exception e) {e.printStackTrace();}
 	}
@@ -52,8 +53,16 @@ public class GrafoTest {
 		
 		grafoTest.insertarVertice("B",coordenadaX, coordenadaY);
 		grafoTest.insertarVertice("B",coordenadaX, coordenadaY);
-
 	}
-	
-	
+
+	@Test
+	public void testTransformarArbolGeneradorMinimoTrue() {
+		grafoTest.CrearGrafo();
+		grafoTest.transformarArbolGeneradorMinimo();
+		assertTrue(grafoTest.getListaAristas().get(0).getPeso() == 4.123105625617661);
+		assertTrue(grafoTest.getListaAristas().get(1).getPeso() == 5.385164807134504);
+		assertTrue(grafoTest.getListaAristas().get(2).getPeso() == 5.830951894845301);
+		assertTrue(grafoTest.getListaAristas().size() == 3);
+		assertTrue(grafoTest.getVerticesGrafo().size() == 4);
+	}
 }

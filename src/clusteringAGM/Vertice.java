@@ -118,4 +118,10 @@ public class Vertice {
 	public Point getcoordenadaVertice() {
 		return coordenadaVertice;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Vertice otroVertice = (Vertice) obj;
+		return nombreDeVertice.equals(otroVertice.getNombre());
+	}
 }
