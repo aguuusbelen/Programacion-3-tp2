@@ -1,12 +1,15 @@
 package interfazClusteringAGM;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import clusteringAGM.Arista;
 import clusteringAGM.Sistema;
 import clusteringAGM.Vertice;
 import java.awt.Panel;
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JSeparator;
 
 public class InterfazResultado {
@@ -28,8 +31,6 @@ public class InterfazResultado {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
-		
 		dibujarAristas();
 		dibujarVertices();
 		frame.revalidate();
@@ -47,6 +48,11 @@ public class InterfazResultado {
 		panel.setBackground(Color.BLACK);
 		panel.setBounds(vertice.getcoordenadaVertice().x, vertice.getcoordenadaVertice().y, 10, 10);
 		frame.getContentPane().add(panel);
+		
+		JLabel nombreVertice = new JLabel(vertice.getNombre());
+		nombreVertice.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		nombreVertice.setBounds(vertice.getcoordenadaVertice().x + 15, vertice.getcoordenadaVertice().y + 5, 10, 10);
+		frame.getContentPane().add(nombreVertice);
 	}
 
 	private void dibujarAristas() {
