@@ -124,7 +124,7 @@ public class InterfazClusAGM {
 					textFieldPosX.setText("");
 					textFieldPosY.setText("");
 				} else {
-					ModalNombreVacio dialog = new ModalNombreVacio();
+					ModalDatoVacio dialog = new ModalDatoVacio();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				}
@@ -138,10 +138,17 @@ public class InterfazClusAGM {
 		btnCrearGrafo.setBackground(new Color(152, 251, 152));
 		btnCrearGrafo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (!sistema.getGrafo().getVerticesGrafo().isEmpty()) {
 				sistema.crearGrafoAGM();
 				Interfaz interfaz = new Interfaz(sistema);
 				interfaz.getFrame().setVisible(true);
 
+			} else {
+						ModalSinVerticesAgregados dialog = new ModalSinVerticesAgregados();
+						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+						dialog.setVisible(true);
+					
+				}
 			}
 		});
 		btnCrearGrafo.setFont(new Font("Tahoma", Font.PLAIN, 16));

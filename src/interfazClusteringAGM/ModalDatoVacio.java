@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ModalNombreVacio extends JDialog {
+public class ModalDatoVacio extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -21,8 +21,8 @@ public class ModalNombreVacio extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public ModalNombreVacio() {
-		setBounds(100, 100, 354, 151);
+	public ModalDatoVacio() {
+		setBounds(100, 100, 370, 160);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);

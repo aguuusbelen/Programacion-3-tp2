@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Sistema {
 
 	private Grafo grafo;
-	private LinkedList<String> listaVertices; 
+	 
 	
 	/**
 	 * <b>Constructor: </b></br>
@@ -15,7 +15,7 @@ public class Sistema {
 	
 	public Sistema(){
 		grafo = new Grafo();
-		listaVertices = new LinkedList<String>();
+		
 	}
 
 	/**
@@ -31,9 +31,7 @@ public class Sistema {
 	 **/
 	
 	public void agregarVertice(String nombreDelVertice, double posicionX, double posicionY) {
-		
 		try{
-			listaVertices.add(nombreDelVertice);
 			grafo.insertarVertice(nombreDelVertice, posicionX, posicionY);
 		} catch(Exception e) { e.printStackTrace(); }
 		
