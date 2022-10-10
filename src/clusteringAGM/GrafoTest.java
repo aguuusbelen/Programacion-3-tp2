@@ -56,7 +56,7 @@ public class GrafoTest {
 	}
 
 	@Test
-	public void testTransformarArbolGeneradorMinimoTrue() {
+	public void testTransformarArbolGeneradorMinimo() {
 		grafoTest.CrearGrafo();
 		grafoTest.transformarArbolGeneradorMinimo();
 		assertTrue(grafoTest.getListaAristas().get(0).getPeso() == 4.123105625617661);

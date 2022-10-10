@@ -15,7 +15,7 @@ import javax.swing.JSeparator;
 public class InterfazResultado {
 
 	private Sistema sistema;
-	private JFrame frame;
+	private JFrame frmResultado;
 
 	public InterfazResultado(Sistema sistema) {
 		this.sistema = sistema;
@@ -26,15 +26,16 @@ public class InterfazResultado {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 700, 450);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmResultado = new JFrame();
+		frmResultado.setTitle("Resultado");
+		frmResultado.setBounds(100, 100, 700, 450);
+		frmResultado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmResultado.getContentPane().setLayout(null);
 		
 		dibujarAristas();
 		dibujarVertices();
-		frame.revalidate();
-		frame.repaint();
+		frmResultado.revalidate();
+		frmResultado.repaint();
 	}
 
 	private void dibujarVertices() {
@@ -47,12 +48,12 @@ public class InterfazResultado {
 		Panel panel = new Panel();
 		panel.setBackground(Color.BLACK);
 		panel.setBounds(vertice.getcoordenadaVertice().x, vertice.getcoordenadaVertice().y, 10, 10);
-		frame.getContentPane().add(panel);
+		frmResultado.getContentPane().add(panel);
 		
 		JLabel nombreVertice = new JLabel(vertice.getNombre());
 		nombreVertice.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		nombreVertice.setBounds(vertice.getcoordenadaVertice().x + 15, vertice.getcoordenadaVertice().y + 5, 10, 10);
-		frame.getContentPane().add(nombreVertice);
+		frmResultado.getContentPane().add(nombreVertice);
 	}
 
 	private void dibujarAristas() {
@@ -93,7 +94,7 @@ public class InterfazResultado {
 			JSeparator separator = new JSeparator();
 			separator.setBounds(coorX, coorY, 1, 1);
 			separator.setBackground(Color.BLUE);
-			frame.getContentPane().add(separator);
+			frmResultado.getContentPane().add(separator);
 			if (porcentajeDeAumentoParaX < porcentajeDeAumentoParaY) {
 				if (contadorAumentoX >= 1){
 					coorX++;
@@ -130,6 +131,6 @@ public class InterfazResultado {
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frmResultado;
 	}
 }

@@ -150,69 +150,6 @@ public class Grafo {
 		listaAristas.remove(indiceArista);
 	}
 
-	/**
-	 * <b>rellenarVecinosDeNodo(): </b></br>
-	 * <u>Metodo que inserta los vecinos de un nodo.</u>
-	 * 
-	 * @param nombreDelNodo    <i>Nombre del nodo al que le insertan su vecinos.</i>
-	 * @param nombresDeVecinos <i>Array con nombres de los vecinos del nodo.</i>
-	 * 
-	 **/
-
-	public void rellenarVecinosDeVertice(String nombreDelNodo, String[] nombresDeVecinos) {
-		int indexNodo = obtenerIndexDeNodo(nombreDelNodo);
-		Vertice nodoParaInsertarVecinos = listaVertices.get(indexNodo);
-
-		for (String nombresDeVecino : nombresDeVecinos) {
-			nodoParaInsertarVecinos.insertarVecinoConPeso(nombresDeVecino, null);
-		}
-	}
-
-	/**
-	 * <b>obtenerVecinosDeVertice(): </b></br>
-	 * <u>Metodo que da todos los vecinos de un vertice.</u>
-	 * 
-	 * @param nombreDeVertice <u>Nombre del vertice del que se busca sus
-	 *                        vecinos.</u>
-	 *
-	 * @return Array de string de vecinos del correspondiente vertice del grafo.
-	 *
-	 **/
-
-	public String[] obtenerVecinosDeVertice(String nombreDeNodo) {
-
-		int indexNodo = obtenerIndexDeNodo(nombreDeNodo);
-		Vertice nodoParaInsertarVecinos = listaVertices.get(indexNodo);
-
-		String[] vecinosDeNodo = nodoParaInsertarVecinos.darVecinos();
-
-		return vecinosDeNodo;
-
-	}
-
-	/**
-	 * <b>darVecinosDeNodo(): </b></br>
-	 * <u>Metodo que busca el index del nodo en la lista.</u>
-	 * 
-	 * @param nombreDelNodo <u>Nombre del nodo del que se busca su index en la
-	 *                      lista.</u>
-	 * @return int del index correspondiente en la lista de nodos del grafo.
-	 **/
-
-	private int obtenerIndexDeNodo(String nombreDelNodo) {
-
-		int index = 0;
-
-		for (int i = 0; i < listaVertices.size(); i++) {
-
-			if (listaVertices.get(i).getNombre().equals(nombreDelNodo))
-				index = i;
-
-		}
-
-		return index;
-	}
-
 	// Getters && Setters
 
 	/**

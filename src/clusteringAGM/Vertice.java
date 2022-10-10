@@ -53,17 +53,6 @@ public class Vertice {
 	}
 	
 	/**
-	 * <b>insertarVecinoConPeso(): </b></br>
-	 * <u>metodo que inserta nodos vecinos y peso en el nodo.</u>
-	 **/
-	
-	public void insertarVecinoConPeso(String nombreDeNodoVecino, Integer peso) {
-		
-		vecinosPesos.put(nombreDeNodoVecino, peso);
-		
-	}
-	
-	/**
 	 * <b>getNombre: </b></br>
 	 * <u>Devuelve el nombre del nodo.</u>
 	 * 
@@ -72,47 +61,6 @@ public class Vertice {
 	
 	public String getNombre() {
 		return nombreDeVertice;
-	}
-	
-	/**
-	 * <b>getVecinoPeso(): </b></br>
-	 * <u>Metodo que devuelve el peso o distancia de un vecino desde el nodo.</u>
-	 * 
-	 * @param nombreDeNodoVecino
-	 * <u>Nombre para el nodo.</u>
-	 * @return int con valor del peso o distancia.
-	 * 
-	 **/
-	
-	public int getVecinoPeso(String nombreDeNodoVecino) {
-		
-		int valor = vecinosPesos.get(nombreDeNodoVecino);
-		
-		return valor;
-	}
-	
-	/**
-	 * <b>darVecinos():</b></br>
-	 * <u>Metodo que devuelve los nombres de los vecinos del nodo.</u>
-	 * 
-	 * @return String[] vecinos con nombres de los vecinos del nodo.
-	 * 
-	 **/
-	
-	public String[] darVecinos() {
-		
-		 Set<String> keys = vecinosPesos.keySet();
-		 int cantidadDeVecinos = keys.size();
-		 
-		 String[] vecinos = new String[cantidadDeVecinos];
-		 
-		 int i = 0;
-	        for(String key : keys) {
-	            vecinos[i] = key;
-	            i++;
-	        }
-		
-		return vecinos;
 	}
 	
 	public Point getcoordenadaVertice() {
