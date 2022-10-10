@@ -74,25 +74,20 @@ public class Sistema {
 	 **/
 	
 	private void crearAristasDelGrafo(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
-		
 		for(int i = 0; i < listaDeVertices.size(); i++){
-			
 			// Si el vertice es diferente a si mismo, se crea la arista correspondiente 
 			// y ademas si la arista no existe previamente, la agrega.
 			if(!verticeDelGrafo.getNombre().equals(listaDeVertices.get(i).getNombre()) && 
 			   !grafo.existeAristaEnGrafo(verticeDelGrafo, listaDeVertices.get(i)))
 				grafo.crearNuevaArista(verticeDelGrafo, listaDeVertices.get(i));
-			
 		}
-		
 	}
 	
 	public void generarClusters(Integer cantidad) {
 		grafo.generarClusters(cantidad);
 	}
 
-//	public HashMap<String, Point> getListaVertices() {
-//		return listaVertices;
-//	}
-
+	public Grafo getGrafo() {
+		return grafo;
+	}
 }

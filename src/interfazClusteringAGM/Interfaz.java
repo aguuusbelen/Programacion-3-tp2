@@ -59,6 +59,8 @@ public class Interfaz {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sistema.generarClusters(Integer.parseInt(textFieldCantClusters.getText()));
+				InterfazResultado interfaz = new InterfazResultado(sistema);
+				interfaz.getFrame().setVisible(true);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
