@@ -74,18 +74,51 @@ public class InterfazResultado {
 		}
 		// 1. X1 < X2 && Y1 < Y2 => (x++, y--)
 		// 2. x1 < x2 && y1 > y2 => (x++, y++)
+		
+		// Calulamos la diferencia para sumar el eje X, cada cierto porcentaje:
+		double difX = coorXDestino - coorX;
+		double difY = (coorY < coorYDestino) ? coorYDestino - coorY : coorY - coorYDestino;
+		double porcentajeDeAumentoParaX = difX / difY;
+		double porcentajeDeAumentoParaY = difY / difX;
+		double contadorAumentoX = porcentajeDeAumentoParaX;
+		double contadorAumentoY = porcentajeDeAumentoParaY;
+		
 		while(coorX != coorXDestino || coorY != coorYDestino) {
 			JSeparator separator = new JSeparator();
 			separator.setBounds(coorX, coorY, 1, 1);
 			separator.setBackground(Color.BLUE);
 			frame.getContentPane().add(separator);
-			if (coorX < coorXDestino) {
+			if (porcentajeDeAumentoParaX < porcentajeDeAumentoParaY) {
+				if (contadorAumentoX >= 1){
+					coorX++;
+					contadorAumentoX--;
+				}
+				contadorAumentoX += porcentajeDeAumentoParaX;
+				if (coorY < coorYDestino) {
+					coorY++;
+				} else if (coorY > coorYDestino) {
+					coorY--;
+				}
+			} else if (porcentajeDeAumentoParaX > porcentajeDeAumentoParaY) {
+				if (contadorAumentoY >= 1){
+					if (coorY < coorYDestino) {
+						coorY++;
+					} else if (coorY > coorYDestino) {
+						coorY--;
+					}
+					contadorAumentoY--;
+				}
+				contadorAumentoY += porcentajeDeAumentoParaY;
+				if (coorX != coorXDestino) {
+					coorX++;
+				}
+			} else {
 				coorX++;
-			}
-			if (coorY < coorYDestino) {
-				coorY++;
-			} else if (coorY > coorYDestino) {
-				coorY--;
+				if (coorY < coorYDestino) {
+					coorY++;
+				} else if (coorY > coorYDestino) {
+					coorY--;
+				}
 			}
 		}
 	}
