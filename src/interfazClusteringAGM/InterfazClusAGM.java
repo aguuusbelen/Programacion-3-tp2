@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 
 public class InterfazClusAGM {
 
@@ -59,12 +60,10 @@ public class InterfazClusAGM {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		
 		nombreVerticeGrafo = new JTextField();
 		nombreVerticeGrafo.setBounds(304, 52, 70, 25);
 		nombreVerticeGrafo.setColumns(1);
 
-		
 		JLabel nuevoPunto = new JLabel("Ingrese nombre de nuevo punto: ");
 		nuevoPunto.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		nuevoPunto.setBounds(47, 54, 247, 17);
@@ -110,7 +109,6 @@ public class InterfazClusAGM {
 		textFieldPosY.setBounds(266, 181, 60, 33);
 		frame.getContentPane().add(textFieldPosY);
 
-		
 		frame.getContentPane().add(ingreseCoordenadas);
 		frame.getContentPane().add(nuevoPunto);
 		frame.getContentPane().add(textFieldPosX);
@@ -119,11 +117,17 @@ public class InterfazClusAGM {
 		JButton agregarVertice = new JButton("Agregar punto");
 		agregarVertice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sistema.agregarVertice(nombreVerticeGrafo.getText(), Integer.parseInt(textFieldPosX.getText()),
-						Integer.parseInt(textFieldPosY.getText()));
-				nombreVerticeGrafo.setText("");
-				textFieldPosX.setText("");
-				textFieldPosY.setText("");
+				if (!nombreVerticeGrafo.getText().isEmpty() && !textFieldPosX.getText().isEmpty() && !textFieldPosY.getText().isEmpty()) {
+					sistema.agregarVertice(nombreVerticeGrafo.getText(), Integer.parseInt(textFieldPosX.getText()),
+							Integer.parseInt(textFieldPosY.getText()));
+					nombreVerticeGrafo.setText("");
+					textFieldPosX.setText("");
+					textFieldPosY.setText("");
+				} else {
+					ModalNombreVacio dialog = new ModalNombreVacio();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
 			}
 		});
 		agregarVertice.setFont(new Font("Tahoma", Font.PLAIN, 16));
