@@ -28,7 +28,7 @@ public class ModalSinVerticesAgregados extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("No ingreso ningun punto");
+		JLabel lblNewLabel = new JLabel("No ingreso ningún punto");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(10, 10, 320, 35);
