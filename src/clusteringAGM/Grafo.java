@@ -4,10 +4,9 @@ import java.util.LinkedList;
 
 public class Grafo {
 
-	private LinkedList<Vertice> listaVertices; // Vertices del grafo, cada uno con su coordenada.
-	private LinkedList<Arista> listaAristas; // Aristas del grafo.
-	// private HashMap <Arista, Integer> grafoAGM;
-
+	private LinkedList<Vertice> listaVertices; 
+	private LinkedList<Arista> listaAristas; 
+	
 	/**
 	 * <b>Constructor: </b></br>
 	 * <u>Constructor de grafo.</u>
@@ -102,7 +101,7 @@ public class Grafo {
 		}
 	}
 
-// Toma el grafo completo y lo transforma en un AGM (guardando solo los datos que necesitamos para generar los clusters)
+
 	public void transformarArbolGeneradorMinimo() {
 		LinkedList<Vertice> listaVerticesAGM = new LinkedList<>();
 		LinkedList<Arista> listaAristasAGM = new LinkedList<>();

@@ -59,12 +59,12 @@ public class InterfazClusAGM {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		// JtextField donde se ingresa el nombre de cada vertice del grafo
+		
 		nombreVerticeGrafo = new JTextField();
 		nombreVerticeGrafo.setBounds(304, 52, 70, 25);
 		nombreVerticeGrafo.setColumns(1);
 
-		// Label para nuevo punto
+		
 		JLabel nuevoPunto = new JLabel("Ingrese nombre de nuevo punto: ");
 		nuevoPunto.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		nuevoPunto.setBounds(47, 54, 247, 17);
@@ -110,7 +110,7 @@ public class InterfazClusAGM {
 		textFieldPosY.setBounds(266, 181, 60, 33);
 		frame.getContentPane().add(textFieldPosY);
 
-		// Ingreso de elementos en interfaz
+		
 		frame.getContentPane().add(ingreseCoordenadas);
 		frame.getContentPane().add(nuevoPunto);
 		frame.getContentPane().add(textFieldPosX);

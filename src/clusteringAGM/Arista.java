@@ -4,9 +4,9 @@ import java.awt.Point;
 
 public class Arista {
 	
-	private double peso; // Peso de la arista
-	private Vertice vertice1; //Vertice de la arista
-	private Vertice vertice2; //Vertice de la arista
+	private double peso; 
+	private Vertice vertice1; 
+	private Vertice vertice2;
 	
 	
 	public Arista(Vertice vertice1, Vertice vertice2) {
@@ -23,7 +23,7 @@ public class Arista {
 		peso = distancia;
 	}
 
-	// Getters && Setters
+
 	public double getPeso() {
 		return peso;
 	}

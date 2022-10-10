@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Sistema {
 
 	private Grafo grafo;
-	private LinkedList<String> listaVertices; /* Una lista SOLO de nombres de vertices agregados al sistema. */
+	private LinkedList<String> listaVertices; 
 	
 	/**
 	 * <b>Constructor: </b></br>
@@ -50,12 +50,9 @@ public class Sistema {
 		
 		LinkedList<Vertice> listaDeVerticesDeGrafo = grafo.getVerticesGrafo();
 		
-		// Recorrido sobre vertices del grafo.
-		// Metodo que recorre linkedlist de nombre de vertices agregados y compara y crea las aristas.
 		for(int i = 0; i < listaDeVerticesDeGrafo.size(); i++)
 			crearAristasDelGrafo(listaDeVerticesDeGrafo.get(i), listaDeVerticesDeGrafo);
 		
-		//grafo.arbolGeneradorMinimo();
 	}
 	
 	public void crearGrafoAGM() {
@@ -75,8 +72,7 @@ public class Sistema {
 	
 	private void crearAristasDelGrafo(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
 		for(int i = 0; i < listaDeVertices.size(); i++){
-			// Si el vertice es diferente a si mismo, se crea la arista correspondiente 
-			// y ademas si la arista no existe previamente, la agrega.
+			
 			if(!verticeDelGrafo.getNombre().equals(listaDeVertices.get(i).getNombre()) && 
 			   !grafo.existeAristaEnGrafo(verticeDelGrafo, listaDeVertices.get(i)))
 				grafo.crearNuevaArista(verticeDelGrafo, listaDeVertices.get(i));
