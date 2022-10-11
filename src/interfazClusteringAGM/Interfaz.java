@@ -13,6 +13,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 
 public class Interfaz {
 
@@ -58,14 +59,26 @@ public class Interfaz {
 		JButton btnNewButton = new JButton("LISTO");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (sistema.getGrafo().getVerticesGrafo().size() >= Integer.parseInt(textFieldCantClusters.getText())) {
 				sistema.generarClusters(Integer.parseInt(textFieldCantClusters.getText()));
 				InterfazResultado interfaz = new InterfazResultado(sistema);
 				interfaz.getFrame().setVisible(true);
+			} else {
+				ModalCantidadDeClusters dialog = new ModalCantidadDeClusters(sistema.getGrafo().getVerticesGrafo().size(), Integer.parseInt(textFieldCantClusters.getText()));
+				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				dialog.setVisible(true);
+				textFieldCantClusters.setText("");
+				
+			}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(164, 144, 121, 30);
 		getFrame().getContentPane().add(btnNewButton);
+	}
+
+	public JTextField getTextFieldCantClusters() {
+		return textFieldCantClusters;
 	}
 
 	public JFrame getFrame() {
