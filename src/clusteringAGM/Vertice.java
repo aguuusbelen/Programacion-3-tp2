@@ -1,15 +1,11 @@
 package clusteringAGM;
 
 import java.awt.Point;
-import java.util.HashMap;
-import java.util.Set;
 
 public class Vertice {
 	
 	private String nombreDeVertice; 
 	private Point coordenadaVertice; 
-	private HashMap<String, Integer> vecinosPesos;
-	
 	
 	/**
 	 * <b>Constructor: </b></br>
@@ -21,11 +17,8 @@ public class Vertice {
 	 **/
 	
 	public Vertice(String nombreDeVertice){
-		
 		coordenadaVertice = new Point();
 		this.nombreDeVertice = nombreDeVertice;
-		vecinosPesos = new HashMap<String, Integer>();
-		
 	}
 	
 	/**
@@ -43,6 +36,8 @@ public class Vertice {
 		coordenadaVertice.setLocation(coordenadaX, coordenadaY);
 	}
 	
+	// Getters & Setters
+	
 	/**
 	 * <b>getNombre: </b></br>
 	 * <u>Devuelve el nombre del nodo.</u>
@@ -53,6 +48,13 @@ public class Vertice {
 	public String getNombre() {
 		return nombreDeVertice;
 	}
+	
+	/**
+	 * <b>getcoordenadaVertice: </b></br>
+	 * <u>Devuelve las coordenadas del vertice.</u>
+	 * 
+	 * @return Point con coordenadas.
+	 **/
 	
 	public Point getcoordenadaVertice() {
 		return coordenadaVertice;

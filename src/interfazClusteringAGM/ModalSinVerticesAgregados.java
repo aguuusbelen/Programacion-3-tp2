@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 public class ModalSinVerticesAgregados extends JDialog {
 
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 
 
@@ -22,19 +23,20 @@ public class ModalSinVerticesAgregados extends JDialog {
 	 * Create the dialog.
 	 */
 	public ModalSinVerticesAgregados() {
+		char uTilde = '\u00FA';
 		setBounds(100, 100, 370, 160);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("No ingreso ningún punto");
+		JLabel lblNewLabel = new JLabel("No ingreso ning"+uTilde+"n punto");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(10, 10, 320, 35);
 		contentPanel.add(lblNewLabel);
 		{
-			JLabel lblNewLabel_1 = new JLabel("No se puede generar los clusters");
+			JLabel lblNewLabel_1 = new JLabel("No se pueden generar los clusters");
 			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			lblNewLabel_1.setBounds(10, 47, 320, 35);

@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class ModalDatoVacio extends JDialog {
 
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 
 
@@ -28,7 +29,7 @@ public class ModalDatoVacio extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Falta algún dato del punto que quiere ingresar");
+		JLabel lblNewLabel = new JLabel("Faltan datos del punto que quiere ingresar");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(10, 23, 320, 35);

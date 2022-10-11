@@ -28,7 +28,7 @@ public class Grafo {
 	 * @param coordenadaY      <i>Coordenada del vertice en Y.</i>
 	 * @throws Exception El nombre ya existe en el grafo
 	 **/
-
+	
 	public void insertarVertice(String nombreDelVertice, double coordenadaX, double coordenadaY) throws Exception {
 
 		if (existeVertice(nombreDelVertice) && nombreDelVertice != null)
@@ -47,11 +47,14 @@ public class Grafo {
 	 * @param vertice1 <i>Nombre del Vertice 1 de la arista.</i>
 	 * @param vertice2 <i>Nombre del Vertice 2 de la arista.</i>
 	 **/
-
+	
 	public void crearNuevaArista(Vertice vertice1, Vertice vertice2) {
-		Arista nuevaArista = new Arista(vertice1, vertice2);
-		nuevaArista.calcularDistancia();
-		listaAristas.add(nuevaArista);
+		try{
+			Arista nuevaArista = new Arista(vertice1, vertice2);
+			nuevaArista.calcularDistancia();
+			listaAristas.add(nuevaArista);
+		} 
+		catch(Exception e) {e.printStackTrace();}	
 	}
 
 	/**
@@ -62,7 +65,7 @@ public class Grafo {
 	 * @param vertice2 <i>Nombre del Vertice 2 de la arista.</i>
 	 * @return True o False segun exista la arista en el grafo.
 	 **/
-
+	
 	public boolean existeAristaEnGrafo(Vertice vertice1, Vertice vertice2) {
 		boolean existeArista = false;
 		for (int i = 0; i < listaAristas.size(); i++) {
@@ -80,7 +83,7 @@ public class Grafo {
 	 * @param nombreDeVertice <i>Nombre del Vertice.</i>
 	 * @return Retorna si el vertice existe true, si no false.
 	 **/
-
+	
 	public boolean existeVertice(String nombreDeVertice) {
 		boolean existe = false;
 		for (int i = 0; i < listaVertices.size(); i++) {
@@ -89,7 +92,13 @@ public class Grafo {
 		}
 		return existe;
 	}
-
+	
+	/**
+	 * <b>CrearGrafo(): </b></br>
+	 * <u>Metodo que une el grafo, creando las aristas de este.</u>
+	 * 
+	 **/
+	
 	public void CrearGrafo() {
 		for (int i = 0; i < listaVertices.size() - 1; i++) {
 			for (int j = i; j < listaVertices.size(); j++) {
@@ -100,8 +109,7 @@ public class Grafo {
 			}
 		}
 	}
-
-
+	
 	public void transformarArbolGeneradorMinimo() {
 		LinkedList<Vertice> listaVerticesAGM = new LinkedList<>();
 		LinkedList<Arista> listaAristasAGM = new LinkedList<>();
@@ -144,6 +152,7 @@ public class Grafo {
 			contador++;
 		}
 	}
+	
 	
 	public void eliminarArista(int indiceArista) {
 		listaAristas.remove(indiceArista);
