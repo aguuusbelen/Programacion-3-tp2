@@ -37,46 +37,12 @@ public class Sistema {
 		
 	}
 	
-	
-	/**
-	 * <b>unirElGrafo(): </b></br>
-	 * <u>Metodo que crea las artistas del grafo (union de vertices del grafo).</u>
-	 * 
-	 **/
-	
-	public void unirElGrafo() {
-		
-		LinkedList<Vertice> listaDeVerticesDeGrafo = grafo.getVerticesGrafo();
-		
-		for(int i = 0; i < listaDeVerticesDeGrafo.size(); i++)
-			crearAristasDelGrafo(listaDeVerticesDeGrafo.get(i), listaDeVerticesDeGrafo);
-		
-	}
-	
 	public void crearGrafoAGM() {
 		grafo.CrearGrafo();
 		grafo.transformarArbolGeneradorMinimo();
 	}
 	
-	/**
-	 * <b>crearAristasDelGrafo(): </b></br>
-	 * <u>Metodo que crea las aristas, pero verifica que no existan ya en el grafo esa arista.</u>
-	 * 
-	 * @param verticeDelGrafo
-	 * <i>Vertice del que se le une a otro vertice, y crea las correspodientes aristas.</i>
-	 * @param listaDeVertices
-	 * <i>Lista de vertices del grafo.</i>
-	 **/
-	
-	private void crearAristasDelGrafo(Vertice verticeDelGrafo, LinkedList<Vertice> listaDeVertices) {
-		for(int i = 0; i < listaDeVertices.size(); i++){
-			
-			if(!verticeDelGrafo.getNombre().equals(listaDeVertices.get(i).getNombre()) && 
-			   !grafo.existeAristaEnGrafo(verticeDelGrafo, listaDeVertices.get(i)))
-				grafo.crearNuevaArista(verticeDelGrafo, listaDeVertices.get(i));
-		}
-	}
-	
+
 	public void generarClusters(Integer cantidad) {
 		grafo.generarClusters(cantidad);
 	}

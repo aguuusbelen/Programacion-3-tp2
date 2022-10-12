@@ -79,10 +79,7 @@ public class InterfazResultado {
 			coorXDestino += arista.getCoordenada1().x;
 			coorYDestino += arista.getCoordenada1().y;
 		}
-		// 1. X1 < X2 && Y1 < Y2 => (x++, y--)
-		// 2. x1 < x2 && y1 > y2 => (x++, y++)
 		
-		// Calulamos la diferencia para sumar el eje X, cada cierto porcentaje:
 		double difX = coorXDestino - coorX;
 		double difY = (coorY < coorYDestino) ? coorYDestino - coorY : coorY - coorYDestino;
 		double porcentajeDeAumentoParaX = difX / difY;
@@ -93,7 +90,8 @@ public class InterfazResultado {
 		while(coorX != coorXDestino || coorY != coorYDestino) {
 			JSeparator separator = new JSeparator();
 			separator.setBounds(coorX, coorY, 1, 1);
-			separator.setBackground(Color.BLUE);
+			separator.setForeground(Color.BLACK);
+			separator.setBackground(Color.BLACK);
 			frmResultado.getContentPane().add(separator);
 			if (porcentajeDeAumentoParaX < porcentajeDeAumentoParaY) {
 				if (contadorAumentoX >= 1){
