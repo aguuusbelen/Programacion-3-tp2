@@ -47,13 +47,19 @@ public class InterfazResultado {
 	private void dibujarVertice(Vertice vertice) {
 		Panel panel = new Panel();
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(vertice.getcoordenadaVertice().x, vertice.getcoordenadaVertice().y, 10, 10);
+		panel.setBounds(vertice.getcoordenadaVertice().x*10, vertice.getcoordenadaVertice().y*10, 10, 10);
 		frmResultado.getContentPane().add(panel);
 		
 		JLabel nombreVertice = new JLabel(vertice.getNombre());
 		nombreVertice.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		nombreVertice.setBounds(vertice.getcoordenadaVertice().x + 15, vertice.getcoordenadaVertice().y + 5, 10, 10);
+		nombreVertice.setBounds(vertice.getcoordenadaVertice().x*10 + 15, vertice.getcoordenadaVertice().y*10 + 5, 30, 30);
 		frmResultado.getContentPane().add(nombreVertice);
+		
+		String coordenada = "(" + vertice.getcoordenadaVertice().x + "," + vertice.getcoordenadaVertice().y + ")";
+		JLabel coordenadaVertice = new JLabel((coordenada));
+		coordenadaVertice.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		coordenadaVertice.setBounds(vertice.getcoordenadaVertice().x*10 + 25, vertice.getcoordenadaVertice().y*10 + 5, 40, 40);
+		frmResultado.getContentPane().add(coordenadaVertice);
 	}
 
 	private void dibujarAristas() {
@@ -68,16 +74,16 @@ public class InterfazResultado {
 		int coorXDestino = 5;
 		int coorY = 5;
 		int coorYDestino = 5;
-		if (arista.getCoordenada1().x < arista.getCoordenada2().x) {
-			coorX += arista.getCoordenada1().x;
-			coorY += arista.getCoordenada1().y;
-			coorXDestino += arista.getCoordenada2().x;
-			coorYDestino += arista.getCoordenada2().y;
+		if (arista.getCoordenada1().x*10 < arista.getCoordenada2().x*10) {
+			coorX += arista.getCoordenada1().x*10;
+			coorY += arista.getCoordenada1().y*10;
+			coorXDestino += arista.getCoordenada2().x*10;
+			coorYDestino += arista.getCoordenada2().y*10;
 		} else {
-			coorX += arista.getCoordenada2().x;
-			coorY += arista.getCoordenada2().y;
-			coorXDestino += arista.getCoordenada1().x;
-			coorYDestino += arista.getCoordenada1().y;
+			coorX += arista.getCoordenada2().x*10;
+			coorY += arista.getCoordenada2().y*10;
+			coorXDestino += arista.getCoordenada1().x*10;
+			coorYDestino += arista.getCoordenada1().y*10;
 		}
 		
 		double difX = coorXDestino - coorX;
