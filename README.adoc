@@ -116,7 +116,7 @@ private void dibujarVertices() {
 
 Para dibujar las aristas utilizamos JSeparator para formar una línea a partir de puntos. En un primer momento, para dibujar cada punto, nos movimos una posición en x y otra en y. Esto generaba que una vez alcanzado el valor de una de las coordenadas, se siguiera moviendo solo en x o en y hasta alcanzar la posición del segundo vértice.
 
-image::src/img6.JPG[]
+image::src/img6.jpg[]
 
 Para que se vea mejor visualmente, se consideró obtener un porcentaje de movimiento para x y un porcentaje para y.
 
@@ -196,4 +196,6 @@ private void dibujarAristas() {
 
 ----
 De esta manera logramos que las líneas se vean más parejas y que no haya “esquinas” que se puedan confundir con otros vértices.
+
 image::src/img7.jpg[]
+
