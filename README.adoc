@@ -29,15 +29,15 @@ image::src/img2.jpg[]
 
 Una vez agregados los puntos, el usuario debe oprimir el boton continuar. Este botón llama al metodo del sistema crearGrafoAGM() que a su vez, llama al metodo grafo.CrearGrafo() que crea el grafo completo. A partir de ese grafo completo, se lo transforma en un AGM con la llamada al metodo grafo.transformarArbolGeneradorMinimo().
 
-image::src/img3.JPG[]
+image::src/img3.jpg[]
 
 El boton continuar tambien crea una nueva interfaz donde el usuario ingresara la cantidad de clusters en los que quiere dividir el grafo.
 
-image::src/img4.JPG[]
+image::src/img4.jpg[]
 
 Al oprimir el boton listo, si la cantidad de divisiones que se quieren hacer es mayor a la cantidad de puntos ingresados, se mostrara una ventana de aviso para que se cambie el valor.
 
-image::src/img5.JPG[]
+image::src/img5.jpg[]
 
 Si el valor ingresado es correcto, se hace la llamada al metodo sistema.generarClusters(). 
 
@@ -196,4 +196,4 @@ private void dibujarAristas() {
 
 ----
 De esta manera logramos que las líneas se vean más parejas y que no haya “esquinas” que se puedan confundir con otros vértices.
-image::src/img7.JPG[]
+image::src/img7.jpg[]
